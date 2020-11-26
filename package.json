@@ -22,5 +22,10 @@
   "bugs": {
     "url": "https://github.com/masakudamatsu/color-picker-nova/issues"
   },
-  "homepage": "https://github.com/masakudamatsu/color-picker-nova#readme"
+  "homepage": "https://github.com/masakudamatsu/color-picker-nova#readme",
+  "dependencies": {
+    "next": "10.0.3",
+    "react": "17.0.1",
+    "react-dom": "17.0.1"
+  }
 }
