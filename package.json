@@ -38,7 +38,8 @@
     "@testing-library/user-event": "12.2.2",
     "babel-jest": "26.6.3",
     "jest": "26.6.3",
-    "jest-axe": "4.1.0"
+    "jest-axe": "4.1.0",
+    "jest-in-case": "1.0.2"
   },
   "jest": {
     "setupFilesAfterEnv": [
