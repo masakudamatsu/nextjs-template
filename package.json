@@ -4,6 +4,9 @@
   "description": "A front-end web app to pick a color by the luminance contrast to pure black and by how much gray is mixed with pure hue",
   "main": "pages/index.js",
   "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
