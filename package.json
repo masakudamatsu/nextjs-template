@@ -60,6 +60,7 @@
     "prettier": "2.2.0"
   },
   "jest": {
+    "clearMocks": true,
     "setupFilesAfterEnv": [
       "@testing-library/jest-dom/extend-expect",
       "jest-axe/extend-expect"
