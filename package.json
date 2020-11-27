@@ -7,7 +7,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "test": "jest --watch"
+    "test": "jest --watch",
+    "test:single": "jest"
   },
   "repository": {
     "type": "git",
@@ -37,6 +38,7 @@
     "@testing-library/react": "11.2.2",
     "@testing-library/user-event": "12.2.2",
     "babel-jest": "26.6.3",
+    "ghooks": "2.0.4",
     "jest": "26.6.3",
     "jest-axe": "4.1.0",
     "jest-in-case": "1.0.2"
@@ -46,5 +48,10 @@
       "@testing-library/jest-dom/extend-expect",
       "jest-axe/extend-expect"
     ]
+  },
+  "config": {
+    "ghooks": {
+      "pre-commit": "npm run test:single"
+    }
   }
 }
