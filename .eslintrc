@@ -6,7 +6,12 @@
       "jsx": true
     }
   },
-  "extends": ["eslint:recommended", "react-app", "react-app/jest"],
+  "extends": [
+    "eslint:recommended",
+    "react-app",
+    "react-app/jest",
+    "eslint-config-prettier"
+  ],
   "rules": {
     "strict": ["error", "never"]
   },
