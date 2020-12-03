@@ -11,9 +11,10 @@
     "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|json)\"",
     "test": "jest --watch",
     "e2e": "cypress open",
-    "cy:run": "cypress run",
     "test:e2e": "start-server-and-test dev http://localhost:3000 e2e",
-    "test:single": "jest"
+    "test:single": "jest",
+    "cy:run": "cypress run",
+    "test:precommit": "npm-run-all test:single cy:run"
   },
   "repository": {
     "type": "git",
@@ -80,7 +81,7 @@
   },
   "config": {
     "ghooks": {
-      "pre-commit": "npm run test:single"
+      "pre-commit": "npm run test:precommit"
     }
   }
 }
