@@ -6,11 +6,12 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "e2e": "cypress open",
     "start": "next start",
     "lint": "eslint --ignore-path .gitignore .",
     "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|json)\"",
     "test": "jest --watch",
+    "e2e": "cypress open",
+    "cy:run": "cypress run",
     "test:e2e": "start-server-and-test dev http://localhost:3000 e2e",
     "test:single": "jest"
   },
