@@ -7,9 +7,8 @@ import Template from './Template';
 
 const mockProps = {};
 
+// DELETE THIS LINE
 describe.skip('delete this line', () => {
-  // DELETE THIS LINE
-
   test('renders UI correctly', () => {
     const {container} = render(<Template {...mockProps} />);
     expect(container).toMatchInlineSnapshot();
