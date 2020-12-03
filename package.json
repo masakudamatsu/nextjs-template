@@ -21,7 +21,7 @@
     "url": "git+https://github.com/masakudamatsu/nextjs-template.git"
   },
   "keywords": [
-    "Next.js",
+    "Next.js"
   ],
   "author": "Masa Kudamatsu <masakudamatsu@gmail.com>",
   "license": "MIT",
