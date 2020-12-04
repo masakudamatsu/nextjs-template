@@ -67,14 +67,6 @@
     "prettier": "^2.2.0",
     "start-server-and-test": "^1.11.6"
   },
-  "jest": {
-    "clearMocks": true,
-    "setupFilesAfterEnv": [
-      "@testing-library/jest-dom/extend-expect",
-      "jest-axe/extend-expect",
-      "jest-styled-components"
-    ]
-  },
   "config": {
     "ghooks": {
       "pre-commit": "npm run test:precommit"
