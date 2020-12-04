@@ -1,5 +1,6 @@
+import Template from 'components/Template';
 function HomePage() {
-  return <div>Welcome to Next.js!</div>;
+  return <Template />;
 }
 
 export default HomePage;
