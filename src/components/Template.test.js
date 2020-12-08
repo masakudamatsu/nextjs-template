@@ -3,7 +3,7 @@ import {render, screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import {axe} from 'jest-axe';
 
-import Template from 'components/Template';
+import Template from 'src/components/Template';
 
 const mockProps = {};
 

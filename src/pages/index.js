@@ -1,4 +1,5 @@
-import Template from 'components/Template';
+import Template from 'src/components/Template';
+
 function HomePage() {
   return <Template />;
 }

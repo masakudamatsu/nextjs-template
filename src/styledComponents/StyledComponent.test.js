@@ -3,7 +3,7 @@ import {render} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import {axe} from 'jest-axe';
 
-import StyledComponent from './StyledComponent';
+import StyledComponent from 'src/styledComponents/StyledComponent';
 
 const mockProps = {};
 
