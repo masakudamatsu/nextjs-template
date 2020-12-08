@@ -14,7 +14,7 @@
     "test:e2e": "start-server-and-test dev http://localhost:3000 e2e",
     "test:single": "jest",
     "cy:run": "cypress run",
-    "test:precommit": "npm-run-all test:single cy:run"
+    "test:precommit": "npm-run-all --parallel test:single cy:run"
   },
   "repository": {
     "type": "git",
