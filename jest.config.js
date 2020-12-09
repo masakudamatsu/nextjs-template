@@ -12,4 +12,5 @@ module.exports = {
     'jest-axe/extend-expect',
     'jest-styled-components',
   ],
+  testPathIgnorePatterns: ['<rootDir>/cypress/', '<rootDir>/node_modules/'],
 };
