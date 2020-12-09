@@ -4,8 +4,11 @@
 /node_modules
 
 # testing
+.nyc_output/
+coverage/
 /cypress/videos
 /cypress/screenshots
+/cypress/snapshots
 
 # production
 /build

@@ -1,3 +1,26 @@
+// Cypress Image Snapshot
+import {addMatchImageSnapshotCommand} from 'cypress-image-snapshot/command';
+
+// Disable the image snapshot tests in the interactive mode: see https://glebbahmutov.com/blog/open-source-visual-testing-of-components/#local-workflow
+if (Cypress.config('isInteractive')) {
+  Cypress.Commands.add('matchImageSnapshot', () => {
+    cy.log('Skipping snapshot 👀');
+  });
+} else {
+  // Enable .matchImageSnapshot()
+  addMatchImageSnapshotCommand({
+    // Avoid full page snapshot
+    capture: 'viewport',
+
+    // Allow tiny differences between snapshots
+    customDiffConfig: {threshold: 0.1}, // threshold for each pixel
+    failureThreshold: 0.03, // threshold for entire image
+    failureThresholdType: 'percent', // percent of image or number of pixels
+
+    // see https://github.com/jaredpalmer/cypress-image-snapshot#options
+  });
+}
+
 // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite
