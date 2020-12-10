@@ -20,5 +20,14 @@
 const {addMatchImageSnapshotPlugin} = require('cypress-image-snapshot/plugin');
 
 module.exports = (on, config) => {
+  // Cypress Image Snapshot
   addMatchImageSnapshotPlugin(on, config);
+
+  // Cypress React Unit Test
+  // see https://github.com/bahmutov/cypress-react-unit-test/blob/main/docs/recipes.md#nextjs
+  require('cypress-react-unit-test/plugins/next')(on, config);
+
+  // IMPORTANT to return the config object
+  // with the any changed environment variables
+  return config;
 };
