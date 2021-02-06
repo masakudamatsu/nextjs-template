@@ -14,7 +14,8 @@
     "test:e2e": "start-server-and-test dev http://localhost:3000 e2e",
     "snapshot": "cypress run --spec \"cypress/component/**/*\"",
     "snapshot:update": "cypress run --env updateSnapshots=true --spec \"cypress/component/**/*\"",
-    "cy:run": "cypress run"
+    "cy:run": "cypress run",
+    "commit": "git-cz"
   },
   "repository": {
     "type": "git",
@@ -47,9 +48,11 @@
     "babel-eslint": "^10.1.0",
     "babel-jest": "^26.6.3",
     "babel-plugin-styled-components": "^1.12.0",
+    "commitizen": "4.2.3",
     "cypress": "^6.0.1",
     "cypress-image-snapshot": "4.0.0",
     "cypress-react-unit-test": "4.17.1",
+    "cz-conventional-changelog": "3.3.0",
     "eslint": "^7.14.0",
     "eslint-config-prettier": "^6.15.0",
     "eslint-config-react-app": "^6.0.0",
@@ -84,5 +87,10 @@
       "prettier --list-different",
       "jest --findRelatedTests"
     ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
   }
 }
