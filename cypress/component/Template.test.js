@@ -1,10 +1,10 @@
 import React from 'react';
 import {mount} from 'cypress-react-unit-test';
-import Template from 'src/components/Template';
+import TemplateComponent from 'src/components/TemplateComponent';
 
-describe('Template component', () => {
+describe('TemplateComponent component', () => {
   it('gets rendered as before', () => {
-    mount(<Template />);
+    mount(<TemplateComponent />);
     cy.matchImageSnapshot();
     // cy.get('body').should('be.visible').matchImageSnapshot();
   });

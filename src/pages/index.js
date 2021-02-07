@@ -1,11 +1,11 @@
 import Noscript from 'src/components/Noscript';
-import Template from 'src/components/Template';
+import TemplateComponent from 'src/components/TemplateComponent';
 
 function HomePage() {
   return (
     <>
       <Noscript />
-      <Template />
+      <TemplateComponent />
     </>
   );
 }
