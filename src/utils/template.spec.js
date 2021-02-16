@@ -9,8 +9,27 @@ cases(
   },
   {
     'Input example 1': {
-      inputs: {},
+      inputs: 1,
       outputs: {},
+    },
+  },
+);
+
+cases(
+  'returns an error with an invalid input',
+  options => {
+    expect(() => {
+      template(options.inputs);
+    }).toThrow(options.outputs);
+  },
+  {
+    missing: {
+      inputs: undefined,
+      outputs: 'The argument is missing. Provide ...',
+    },
+    string: {
+      inputs: '16',
+      outputs: 'The argument must be a number, but you provided a string',
     },
   },
 );
