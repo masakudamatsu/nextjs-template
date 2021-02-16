@@ -321,7 +321,7 @@ input {
 
 body {
   color: black;
-  font-family: 'Roboto'; /* See _document.js */
+  font-family: 'Poppins', Verdana, sans-serif; /* See _app.js */
 }
 
 `;
