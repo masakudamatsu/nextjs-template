@@ -1,5 +1,7 @@
 import {createGlobalStyle} from 'styled-components';
 
+import {color} from './specColor';
+
 const GlobalStyle = createGlobalStyle`
 /*!
  * ress.css • v3.0.1
@@ -316,12 +318,11 @@ input {
 }
 
 :root { /* The background-color on the body element won't spread over the entire page for some reason. */
-  background-color: white;
+  background-color: ${color.body.background};
 }
 
 body {
-  color: black;
-  font-family: 'Poppins', Verdana, sans-serif; /* See _app.js */
+  color: ${color.body.font};
 }
 
 `;
