@@ -37,5 +37,6 @@ export const typescale = {
 export const font = {
   h1: typescale.test,
   linkText: typescale.test,
+  paragraph: typescale.test,
   textCropper: typescale.test,
 };
