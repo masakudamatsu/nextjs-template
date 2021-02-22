@@ -1,7 +1,7 @@
 import A from 'src/elements/A';
 import H1 from 'src/elements/H1';
-import Noscript from 'src/components/Noscript';
-import P from 'src/elements/P';
+import BannerForNoJs from 'src/components/BannerForNoJs';
+import Section from 'src/blocks/Section';
 import TextCropper from 'src/components/TextCropper';
 
 function HomePage() {
@@ -10,9 +10,18 @@ function HomePage() {
       <H1>
         <A href="https://nextjs.org/">Next.js</A> Template
       </H1>
-      <P>For kick-starting your Next.js project</P>
-      <Noscript />
-      <TextCropper />
+      <Section>
+        <Section.Paragraph>
+          For kick-starting your Next.js project
+        </Section.Paragraph>
+        <Section.Whitespace betweenSections />
+      </Section>
+      <noscript>
+        <BannerForNoJs />
+      </noscript>
+      <div>
+        <TextCropper />
+      </div>
     </>
   );
 }

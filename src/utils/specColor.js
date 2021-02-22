@@ -16,7 +16,7 @@ const onPrimary = '#ffffff';
 const onSecondary = '#000000';
 const onBackground = '#ffffff';
 const onSurface = '#ffffff';
-const onError = '#ffffff';
+const onError = '#0a0a0a';
 
 export const color = {
   body: {
@@ -30,14 +30,15 @@ export const color = {
     },
     font: 'inherit',
   },
+  banner: {
+    background: error,
+    font: onError,
+    linkTextBackground: secondary,
+  },
   header: {
     background: primary,
     font: onPrimary,
     borderBottom: onPrimary,
-  },
-  banner: {
-    background: error,
-    font: onError,
   },
   textCropper: {
     blockElement: secondary,
