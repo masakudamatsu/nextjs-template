@@ -1,10 +1,13 @@
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 import {color} from 'src/utils/specColor';
 import {font} from 'src/utils/specFont';
 
 const A = styled.a`
-  background: ${color.linkText.background.onHover}; /* Fallback */
+  background: ${props =>
+    props.backgroundColorOnHover ||
+    color.linkText.background.onHover}; /* Fallback */
   background: linear-gradient(
     to bottom,
     transparent 50%,
@@ -23,13 +26,17 @@ const A = styled.a`
   color: ${color.linkText.font};
   cursor: pointer;
   text-decoration: none;
-  text-shadow: 0.03em 0 ${color.linkText.background.default},
-    -0.03em 0 ${color.linkText.background.default},
-    0 0.03em ${color.linkText.background.default},
-    0 -0.03em ${color.linkText.background.default}; /* following https://eager.io/blog/smarter-link-underlines/ */
+  text-shadow: 0.03em 0
+      ${props => props.backgroundColor || color.linkText.background.default},
+    -0.03em 0 ${props => props.backgroundColor || color.linkText.background.default},
+    0 0.03em
+      ${props => props.backgroundColor || color.linkText.background.default},
+    0 -0.03em ${props => props.backgroundColor || color.linkText.background.default}; /* following https://eager.io/blog/smarter-link-underlines/ */
 
   &:visited {
-    background: ${color.linkText.background.onHover}; /* fallback */
+    background: ${props =>
+      props.backgroundColorOnHover ||
+      color.linkText.background.onHover}; /* fallback */
     background: linear-gradient(
       to bottom,
       transparent 50%,
@@ -41,7 +48,8 @@ const A = styled.a`
 
   &:focus,
   &:hover {
-    background: ${color.linkText.background.onHover};
+    background: ${props =>
+      props.backgroundColorOnHover || color.linkText.background.onHover};
     outline: none;
     text-shadow: none;
   }
@@ -52,7 +60,8 @@ const A = styled.a`
 
   &:visited:focus,
   &:visited:hover {
-    background: ${color.linkText.background.onHover};
+    background: ${props =>
+      props.backgroundColorOnHover || color.linkText.background.onHover};
     outline: none;
     text-shadow: none;
   }
@@ -61,5 +70,10 @@ const A = styled.a`
     background: none;
   }
 `;
+
+A.propTypes = {
+  backgroundColor: PropTypes.string,
+  backgroundColorOnHover: PropTypes.string,
+};
 
 export default A;
