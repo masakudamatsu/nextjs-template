@@ -7,6 +7,7 @@ module.exports = {
     '!**/pages/_*.js',
     '!**/*.test.js',
     '!**/*.spec.js',
+    '!src/utils/GlobalStyle.js',
   ], // https://jestjs.io/docs/en/configuration#collectcoveragefrom-array
   coverageThreshold: {
     global: {
