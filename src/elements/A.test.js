@@ -11,7 +11,7 @@ test('renders UI correctly:', () => {
     .c0 {
       background: #018786;
       background: linear-gradient( to bottom,transparent 50%,currentColor 50%,currentColor );
-      background-position: 0 1.1020em;
+      background-position: 0 1.1000em;
       background-repeat: no-repeat;
       background-size: 100% 2px;
       color: inherit;

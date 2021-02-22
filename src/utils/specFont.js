@@ -31,12 +31,32 @@ export const typescale = {
     },
     fontMetrics: poppins.thin,
   },
+  display: {
+    capHeight: poppins.thin.capHeight / 10,
+    xHeightRatio: 5,
+    betweenLinesRatio: 6,
+    textCropEm: {
+      top: -0.249,
+      bottom: -0.255,
+    },
+    fontMetrics: poppins.thin,
+  },
+  body: {
+    capHeight: 10,
+    xHeightRatio: 2,
+    betweenLinesRatio: 3,
+    textCropEm: {
+      top: -0.3165, // from -0.282 to -0.351
+      bottom: -0.4195, // from -0.385 to -0.454
+    },
+    fontMetrics: poppins.light,
+  },
 };
 
 // Assign type scales to components
 export const font = {
-  h1: typescale.test,
-  linkText: typescale.test,
-  paragraph: typescale.test,
+  h1: typescale.display,
+  linkText: typescale.body,
+  paragraph: typescale.body,
   textCropper: typescale.test,
 };
