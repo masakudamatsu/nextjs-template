@@ -5,6 +5,7 @@ module.exports = {
   collectCoverageFrom: [
     'src/**/*.{js,jsx}',
     '!**/pages/_*.js',
+    '!**/pages/index.js',
     '!**/*.test.js',
     '!**/*.spec.js',
     '!src/utils/GlobalStyle.js',
