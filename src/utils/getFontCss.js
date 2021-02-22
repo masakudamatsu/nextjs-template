@@ -4,40 +4,65 @@ import {scale} from './specFont';
 import {mediaQuery} from './mediaQuery';
 import remify from './remify';
 
-export function fontCssGenerator(
-  capheight,
-  typeface,
-  xheight = null,
-  betweenLine = null,
-) {
+// For text input elements, setting line height and text crop is meaningless. So the line-height ratio (xHeightRatio, betweenLinesRatio) and the textCropEm can be omitted.
+
+export function fontCssGenerator(typeface) {
+  /* Text Crop (see https://text-crop.eightshapes.com/) */
+  const textcropCss =
+    typeface.textCropEm &&
+    `
+      &::before,
+      &::after {
+        content: '';
+        display: block;
+        height: 0;
+        width: 0;
+      }
+      &::before {
+        margin-bottom: ${typeface.textCropEm.top}em;
+      }
+      &::after {
+        margin-top: ${typeface.textCropEm.bottom}em;
+      }
+    `;
   return css`
-    font-family: ${typeface.fontFamily};
-    font-size: ${remify(capHeightToBe(capheight, typeface))};
-    font-weight: ${typeface.fontWeight};
-    line-height: ${xheight && betweenLine
-      ? lineHeightToBe(xheight, betweenLine, typeface)
-      : 'normal'};
+    font-family: ${typeface.fontMetrics.fontFamily};
+    font-size: ${remify(
+      capHeightToBe(typeface.capHeight, typeface.fontMetrics),
+    )};
+    font-weight: ${typeface.fontMetrics.fontWeight};
+    line-height: ${lineHeightToBe(typeface)};
     @media only screen and ${mediaQuery.font} {
-      font-size: ${remify(capHeightToBe(capheight * scale, typeface))};
+      font-size: ${remify(
+        capHeightToBe(typeface.capHeight * scale, typeface.fontMetrics),
+      )};
     }
+    ${textcropCss}
   `;
 }
 
 // helper functions
 
-function capHeightToBe(px, fontMetrics) {
-  const capHeightToFontSize = capHeight =>
-    (capHeight / fontMetrics.capHeight) * fontMetrics.unitsPerEm;
-  return capHeightToFontSize(px);
+function capHeightToBe(capHeight, fontMetrics) {
+  const fontSizeToCapHeightRatio =
+    fontMetrics.unitsPerEm / fontMetrics.capHeight;
+  return capHeight * fontSizeToCapHeightRatio;
 }
 
-function xHeightToBe(px, fontMetrics) {
-  const xHeightToFontSize = xHeight =>
-    (xHeight / fontMetrics.xHeight) * fontMetrics.unitsPerEm;
-  return xHeightToFontSize(px);
+function xHeightToBe(xHeight, fontMetrics) {
+  const fontSizeToXHeightRatio = fontMetrics.unitsPerEm / fontMetrics.xHeight;
+  return xHeight * fontSizeToXHeightRatio;
 }
 
-function lineHeightToBe(xHeightPx, spaceBetweenPx, fontMetrics) {
-  const lineHeight = xHeightPx + spaceBetweenPx;
-  return lineHeight / xHeightToBe(xHeightPx, fontMetrics);
+function lineHeightToBe(typeface) {
+  if (!typeface.xHeightRatio || !typeface.betweenLinesRatio) {
+    return 'normal';
+  }
+  const lineHeightToXHeightRatio =
+    (typeface.xHeightRatio + typeface.betweenLinesRatio) /
+    typeface.xHeightRatio;
+  return (
+    (typeface.fontMetrics.xHeight * lineHeightToXHeightRatio) /
+    typeface.fontMetrics.unitsPerEm
+  );
 }

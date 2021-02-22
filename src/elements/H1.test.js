@@ -10,14 +10,30 @@ test('renders UI correctly', () => {
   expect(container).toMatchInlineSnapshot(`
     .c0 {
       font-family: 'Poppins',Verdana,sans-serif;
-      font-size: 1.3355rem;
+      font-size: 6.25rem;
       font-weight: 100;
-      line-height: normal;
+      line-height: 1.188;
+    }
+
+    .c0::before,
+    .c0::after {
+      content: '';
+      display: block;
+      height: 0;
+      width: 0;
+    }
+
+    .c0::before {
+      margin-bottom: -0.249em;
+    }
+
+    .c0::after {
+      margin-top: -0.255em;
     }
 
     @media only screen and min-width:45.5rem {
       .c0 {
-        font-size: 1.6026rem;
+        font-size: 7.5rem;
       }
     }
 

@@ -1,7 +1,7 @@
 // This file provides the single source of truth on design.
 // CSS declarations will be derived from the values set in this file.
 
-import {capHeight} from './specFont';
+import {font} from './specFont';
 
 export const marginLeft = 10;
 export const minScreenWidth = 320;
@@ -11,7 +11,7 @@ export const minScreenWidth = 320;
 export const header = {
   borderBottomWidth: 1,
   h1: {
-    height: capHeight.medium,
+    height: font.h1.capHeight,
   },
   logo: {
     height: 30,
