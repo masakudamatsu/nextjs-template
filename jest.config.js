@@ -5,8 +5,10 @@ module.exports = {
   collectCoverageFrom: [
     'src/**/*.{js,jsx}',
     '!**/pages/_*.js',
+    '!**/pages/index.js',
     '!**/*.test.js',
     '!**/*.spec.js',
+    '!src/utils/GlobalStyle.js',
   ], // https://jestjs.io/docs/en/configuration#collectcoveragefrom-array
   coverageThreshold: {
     global: {
