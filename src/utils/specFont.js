@@ -36,5 +36,6 @@ export const typescale = {
 // Assign type scales to components
 export const font = {
   h1: typescale.test,
+  linkText: typescale.test,
   textCropper: typescale.test,
 };

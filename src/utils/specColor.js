@@ -23,6 +23,13 @@ export const color = {
     background: background,
     font: onBackground,
   },
+  linkText: {
+    background: {
+      default: background,
+      onHover: secondaryShade,
+    },
+    font: 'inherit',
+  },
   header: {
     background: primary,
     font: onPrimary,
