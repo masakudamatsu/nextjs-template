@@ -28,6 +28,24 @@ export const h1 = {
   },
 };
 
+export const section = {
+  xHeight:
+    font.paragraph.xHeight ||
+    font.paragraph.capHeight *
+      (font.paragraph.fontMetrics.xHeight /
+        font.paragraph.fontMetrics.capHeight),
+  get betweenParagraphs() {
+    const modularScale =
+      font.paragraph.betweenLinesRatio / font.paragraph.xHeightRatio;
+    return this.xHeight * Math.pow(modularScale, 2);
+  },
+  get betweenSections() {
+    const modularScale =
+      font.paragraph.betweenLinesRatio / font.paragraph.xHeightRatio;
+    return this.xHeight * Math.pow(modularScale, 3);
+  },
+};
+
 export const header = {
   borderBottomWidth: 1,
   h1: {
