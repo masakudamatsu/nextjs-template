@@ -20,6 +20,14 @@ export const textCropper = {
   },
 };
 
+export const h1 = {
+  height: font.h1.capHeight,
+  whitespace: {
+    aboveH1: font.h1.capHeight,
+    belowH1: font.h1.capHeight,
+  },
+};
+
 export const header = {
   borderBottomWidth: 1,
   h1: {
@@ -38,11 +46,11 @@ export const header = {
     belowH1: 15,
     betweenLogoAndH1: marginLeft,
   },
-  get height() {
-    return (
-      this.capheight.h1 + this.whitespace.aboveH1 + this.whitespace.belowH1
-    ); // excludes the border width which will not scale up beyond 728px wide screens
-  },
+  // get height() {
+  //   return (
+  //     this.capheight.h1 + this.whitespace.aboveH1 + this.whitespace.belowH1
+  //   ); // excludes the border width which will not scale up beyond 728px wide screens
+  // },
 };
 
 // to be used in mediaQuery.js

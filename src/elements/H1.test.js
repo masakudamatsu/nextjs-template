@@ -13,6 +13,8 @@ test('renders UI correctly', () => {
       font-size: 6.25rem;
       font-weight: 100;
       line-height: 1.188;
+      padding-bottom: 4.3875rem;
+      padding-top: 4.3875rem;
     }
 
     .c0::before,
