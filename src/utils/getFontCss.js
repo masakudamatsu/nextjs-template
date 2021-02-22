@@ -7,6 +7,14 @@ import remify from './remify';
 // For text input elements, setting line height and text crop is meaningless. So the line-height ratio (xHeightRatio, betweenLinesRatio) and the textCropEm can be omitted.
 
 export function fontCssGenerator(typeface) {
+  /* Cap height vs x-height */
+  let fontSize;
+  if (typeface.capHeight) {
+    fontSize = capHeightToBe(typeface.capHeight, typeface.fontMetrics);
+  }
+  if (typeface.xHeight) {
+    fontSize = xHeightToBe(typeface.xHeight, typeface.fontMetrics);
+  }
   /* Text Crop (see https://text-crop.eightshapes.com/) */
   const textcropCss =
     typeface.textCropEm &&
@@ -27,9 +35,7 @@ export function fontCssGenerator(typeface) {
     `;
   return css`
     font-family: ${typeface.fontMetrics.fontFamily};
-    font-size: ${remify(
-      capHeightToBe(typeface.capHeight, typeface.fontMetrics),
-    )};
+    font-size: ${remify(fontSize)};
     font-weight: ${typeface.fontMetrics.fontWeight};
     line-height: ${lineHeightToBe(typeface)};
     @media only screen and ${mediaQuery.font} {
