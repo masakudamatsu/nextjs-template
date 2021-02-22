@@ -6,7 +6,19 @@ import {font} from './specFont';
 export const marginLeft = 10;
 export const minScreenWidth = 320;
 
-// Header component as an example
+// Component layout parameters
+
+export const textCropper = {
+  left: '25vw',
+  top: '25vh',
+  width: '50vw',
+  blockElement: {
+    height: font.textCropper.capHeight,
+  },
+  capHeightBox: {
+    height: font.textCropper.capHeight,
+  },
+};
 
 export const header = {
   borderBottomWidth: 1,

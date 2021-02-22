@@ -32,4 +32,12 @@ export const color = {
     background: error,
     font: onError,
   },
+  textCropper: {
+    blockElement: secondary,
+    capHeightBox: primary,
+    textBox: {
+      border: error,
+      font: onPrimary,
+    },
+  },
 };
