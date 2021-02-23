@@ -1,9 +1,18 @@
 import React from 'react';
-import {render} from '@testing-library/react';
+import {render, screen} from '@testing-library/react';
 
 import TemplateElement from './TemplateElement';
 
 const mockProps = {};
+
+describe('changes UI with props', () => {
+  test('... if the ... prop is provided', () => {
+    render(<TemplateElement testProp data-testid="TemplateElement" />);
+    expect(screen.getByTestId('TemplateElement')).toHaveStyle(
+      `display: inline-block`,
+    );
+  });
+});
 
 test('renders UI correctly', () => {
   const {container} = render(<TemplateElement {...mockProps} />);
