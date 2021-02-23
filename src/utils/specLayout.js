@@ -46,6 +46,27 @@ export const section = {
   },
 };
 
+export const input = {
+  borderWidth: {
+    inactive: 1,
+    active: 2,
+  },
+  borderRadius: 4,
+};
+
+export const form = {
+  capHeight: {
+    label: 5,
+    input: 10,
+  },
+  whitespace: {
+    aboveInputValue: 10,
+    aboveLabel: 5,
+    belowInputValue: 10,
+    left: 5,
+  },
+};
+
 export const header = {
   borderBottomWidth: 1,
   h1: {

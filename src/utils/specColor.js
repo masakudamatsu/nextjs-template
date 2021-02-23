@@ -38,6 +38,16 @@ export const color = {
   figure: {
     border: onBackground,
   },
+  input: {
+    background: background,
+    border: onBackground,
+    font: onBackground,
+  },
+  get label() {
+    return {
+      font: this.input.font,
+    };
+  },
   header: {
     background: primary,
     font: onPrimary,
