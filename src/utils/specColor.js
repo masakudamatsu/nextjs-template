@@ -35,6 +35,9 @@ export const color = {
     font: onError,
     linkTextBackground: secondary,
   },
+  figure: {
+    border: onBackground,
+  },
   header: {
     background: primary,
     font: onPrimary,
