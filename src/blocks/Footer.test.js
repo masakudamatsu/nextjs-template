@@ -27,60 +27,45 @@ describe('renders UI correctly', () => {
         width: 100%;
       }
 
-      <div>
-        <footer
-          class="c0"
-        />
-      </div>
-    `);
-  });
-  test('Link', () => {
-    const {container} = render(<Footer.Link {...mockProps} />);
-    expect(container).toMatchInlineSnapshot(`
-      .c0 {
-        background: #018786;
+      .c0 a:link,
+      .c0 a:visited {
+        background: #03dac6;
         background: linear-gradient( to bottom,transparent 50%,currentColor 50%,currentColor );
         background-position: 0 1.1000em;
         background-repeat: no-repeat;
         background-size: 100% 2px;
-        color: inherit;
+        color: #000000;
         cursor: pointer;
         -webkit-text-decoration: none;
         text-decoration: none;
-        text-shadow: 0.03em 0 #0a0a0a,-0.03em 0 #0a0a0a,0 0.03em #0a0a0a,0 -0.03em #0a0a0a;
+        text-shadow: 0.03em 0 #018786,-0.03em 0 #018786,0 0.03em #018786,0 -0.03em #018786;
       }
 
-      .c0:visited {
-        background: #018786;
-        background: linear-gradient( to bottom,transparent 50%,currentColor 50%,currentColor );
-        color: inherit;
-      }
-
-      .c0:focus,
-      .c0:hover {
-        background: #018786;
+      .c0 a:focus,
+      .c0 a:hover {
+        background: #03dac6;
         outline: none;
         text-shadow: none;
       }
 
-      .c0:active {
+      .c0 a:active {
         background: none;
       }
 
-      .c0:visited:focus,
-      .c0:visited:hover {
-        background: #018786;
+      .c0 a:visited:focus,
+      .c0 a:visited:hover {
+        background: #03dac6;
         outline: none;
         text-shadow: none;
       }
 
-      .c0:visited:active {
+      .c0 a:visited:active {
         background: none;
       }
 
       <div>
-        <a
-          class="Footer__Link-n0a7ft-2 c0"
+        <footer
+          class="c0"
         />
       </div>
     `);

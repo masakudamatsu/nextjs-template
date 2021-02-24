@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-import A from 'src/elements/A';
 import P from 'src/elements/P';
 
 import {color} from 'src/utils/specColor';
+import {cssLinkText} from 'src/utils/cssLinkText';
+import {font} from 'src/utils/specFont';
 import {footer} from 'src/utils/specLayout';
 import {mediaQuery} from 'src/utils/mediaQuery';
 import remify from 'src/utils/remify';
@@ -16,11 +17,18 @@ const Footer = styled.footer`
   color: ${color.footer.font};
   max-width: 33em; /* One character is on average 0.5em, and 66 is regarded as the ideal number of characters per line (source: http://webtypography.net/2.1.2) */
   width: 100%;
+
+  a {
+    ${cssLinkText({
+      backgroundColor: color.footer.background,
+      backgroundColorOnHover: color.footer.linkText.background,
+      linkTextColor: color.footer.linkText.font,
+      fontMetrics: font.footer.fontMetrics,
+    })}
+  }
 `;
 
 Footer.Paragraph = styled(P)``;
-
-Footer.Link = styled(A)``;
 
 Footer.Whitespace = styled.div`
   height: ${remify(footer.betweenParagraphs)};

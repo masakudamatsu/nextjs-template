@@ -8,22 +8,51 @@ import remify from 'src/utils/remify';
 
 const mockProps = {};
 
-describe('Props', () => {
-  test('Parent changes the background color with the backgroundColor prop value', () => {
+describe('Props work as intended', () => {
+  test('backgroundColor', () => {
     const backgroundColor = '#343434';
-    render(<Section backgroundColor={backgroundColor} data-testid="section" />);
+    render(
+      <Section backgroundColor={backgroundColor} data-testid="section">
+        <a href="" data-testid="link-text">
+          Link Text
+        </a>
+      </Section>,
+    );
     expect(screen.getByTestId('section')).toHaveStyle(
       `background-color: ${backgroundColor}`,
     );
+    expect(screen.getByTestId('link-text')).toHaveStyle(
+      `text-shadow: 0.03em 0 ${backgroundColor},-0.03em 0 ${backgroundColor},0 0.03em ${backgroundColor},0 -0.03em ${backgroundColor};`,
+    );
   });
 
-  test('Parent changes the font color with the fontColor prop value', () => {
-    const fontColor = '#dddddd';
-    render(<Section fontColor={fontColor} data-testid="section" />);
+  test('fontColor', () => {
+    const fontColor = '#eeeeee';
+    render(
+      <Section fontColor={fontColor} data-testid="section">
+        <a href="" data-testid="link-text">
+          Link Text
+        </a>
+      </Section>,
+    );
     expect(screen.getByTestId('section')).toHaveStyle(`color: ${fontColor}`);
   });
 
-  test('Whitespace changes the height if the betweenParagraphs prop is true', () => {
+  test('linkTextBackground', () => {});
+
+  test('linkTextColor', () => {
+    const fontColor = '#eeeeee';
+    render(
+      <Section linkTextColor={fontColor} data-testid="section">
+        <a href="" data-testid="link-text">
+          Link Text
+        </a>
+      </Section>,
+    );
+    expect(screen.getByTestId('link-text')).toHaveStyle(`color: ${fontColor}`);
+  });
+
+  test('betweenParagraphs for Whitespace element', () => {
     render(<Section.Whitespace betweenParagraphs data-testid="whitespace" />);
     expect(screen.getByTestId('whitespace')).toHaveStyle(
       `height: ${remify(section.betweenParagraphs)}`,
@@ -62,6 +91,38 @@ describe('renders UI correctly:', () => {
         margin-top: -0.3325em;
       }
 
+      .c0 a:link,
+      .c0 a:visited {
+        background: linear-gradient( to bottom,transparent 50%,currentColor 50%,currentColor );
+        background-position: 0 1.1000em;
+        background-repeat: no-repeat;
+        background-size: 100% 2px;
+        cursor: pointer;
+        -webkit-text-decoration: none;
+        text-decoration: none;
+        text-shadow: 0.03em 0 ,-0.03em 0 ,0 0.03em ,0 -0.03em;
+      }
+
+      .c0 a:focus,
+      .c0 a:hover {
+        outline: none;
+        text-shadow: none;
+      }
+
+      .c0 a:active {
+        background: none;
+      }
+
+      .c0 a:visited:focus,
+      .c0 a:visited:hover {
+        outline: none;
+        text-shadow: none;
+      }
+
+      .c0 a:visited:active {
+        background: none;
+      }
+
       @media only screen and (min-width:45.5rem) {
         .c0 {
           font-size: 1.6071rem;
@@ -75,71 +136,7 @@ describe('renders UI correctly:', () => {
       </div>
     `);
   });
-  test('Link', () => {
-    const {container} = render(<Section.Link {...mockProps} />);
-    expect(container).toMatchInlineSnapshot(`
-      .c0 {
-        background: #018786;
-        background: linear-gradient( to bottom,transparent 50%,currentColor 50%,currentColor );
-        background-position: 0 1.1000em;
-        background-repeat: no-repeat;
-        background-size: 100% 2px;
-        color: inherit;
-        cursor: pointer;
-        -webkit-text-decoration: none;
-        text-decoration: none;
-        text-shadow: 0.03em 0 #0a0a0a,-0.03em 0 #0a0a0a,0 0.03em #0a0a0a,0 -0.03em #0a0a0a;
-      }
-
-      .c0:visited {
-        background: #018786;
-        background: linear-gradient( to bottom,transparent 50%,currentColor 50%,currentColor );
-        color: inherit;
-      }
-
-      .c0:focus,
-      .c0:hover {
-        background: #018786;
-        outline: none;
-        text-shadow: none;
-      }
-
-      .c0:active {
-        background: none;
-      }
-
-      .c0:visited:focus,
-      .c0:visited:hover {
-        background: #018786;
-        outline: none;
-        text-shadow: none;
-      }
-
-      .c0:visited:active {
-        background: none;
-      }
-
-      <div>
-        <a
-          class="Section__Link-yfzme9-2 c0"
-        />
-      </div>
-    `);
-  });
-  test('Paragraph', () => {
-    const {container} = render(<Section.Paragraph {...mockProps} />);
-    expect(container).toMatchInlineSnapshot(`
-      .c0 {
-        text-align: left;
-      }
-
-      <div>
-        <p
-          class="Section__Paragraph-yfzme9-1 c0"
-        />
-      </div>
-    `);
-  });
+  test('Paragraph', () => {});
   test('Whitespace', () => {
     const {container} = render(<Section.Whitespace {...mockProps} />);
     expect(container).toMatchInlineSnapshot(`

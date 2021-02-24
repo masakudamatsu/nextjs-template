@@ -8,6 +8,8 @@ const BannerForNoJs = () => {
     <Section
       backgroundColor={color.banner.background}
       fontColor={color.banner.font}
+      linkTextBackground={color.banner.linkText.background}
+      linkTextColor={color.banner.linkText.font}
     >
       <Section.Whitespace />
       <Section.Paragraph>
@@ -17,13 +19,9 @@ const BannerForNoJs = () => {
       <Section.Whitespace betweenParagraphs />
       <Section.Paragraph>
         Here are the{' '}
-        <Section.Link
-          href="https://www.enable-javascript.com/"
-          backgroundColor={color.banner.background}
-          backgroundColorOnHover={color.banner.linkTextBackground}
-        >
+        <a href="https://www.enable-javascript.com/">
           instructions how to enable JavaScript in your web browser
-        </Section.Link>
+        </a>
         .{' '}
       </Section.Paragraph>
       <Section.Whitespace />

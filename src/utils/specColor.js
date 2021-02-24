@@ -30,10 +30,21 @@ export const color = {
     },
     font: 'inherit',
   },
+  section: {
+    background: surface,
+    font: onSurface,
+    linkText: {
+      background: primaryShade,
+      font: onSurface,
+    },
+  },
   banner: {
     background: error,
     font: onError,
-    linkTextBackground: secondary,
+    linkText: {
+      background: secondary,
+      font: onError,
+    },
   },
   figure: {
     border: onBackground,
@@ -42,6 +53,10 @@ export const color = {
     background: secondaryShade,
     borderTop: onSecondary,
     font: onSecondary,
+    linkText: {
+      background: secondary,
+      font: onSecondary,
+    },
   },
   header: {
     background: secondary,

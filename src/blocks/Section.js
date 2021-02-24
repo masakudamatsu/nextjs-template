@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-import A from 'src/elements/A';
 import P from 'src/elements/P';
 
+import {color} from 'src/utils/specColor';
+import {cssLinkText} from 'src/utils/cssLinkText';
 import {font, scale} from 'src/utils/specFont';
 import {fontCssGenerator} from 'src/utils/getFontCss';
 import {mediaQuery} from 'src/utils/mediaQuery';
@@ -17,11 +18,19 @@ const Section = styled.section`
   color: ${props => props.fontColor || 'inherit'};
   max-width: 33em; /* One character is on average 0.5em, and 66 is regarded as the ideal number of characters per line (source: http://webtypography.net/2.1.2) */
   width: 100%;
+
+  a {
+    ${props =>
+      cssLinkText({
+        backgroundColor: props.backgroundColor,
+        backgroundColorOnHover: props.linkTextBackground,
+        linkTextColor: props.linkTextColor,
+        fontMetrics: font.section.fontMetrics,
+      })}
+  }
 `;
 
 Section.Paragraph = styled(P)``;
-
-Section.Link = styled(A)``;
 
 Section.Whitespace = styled.div`
   height: ${props =>
@@ -40,6 +49,8 @@ Section.Whitespace = styled.div`
 Section.propTypes = {
   backgroundColor: PropTypes.string,
   fontColor: PropTypes.string,
+  linkTextBackground: PropTypes.string,
+  linkTextColor: PropTypes.string,
 };
 
 Section.Whitespace.propTypes = {
