@@ -66,6 +66,19 @@ test('renders UI correctly', () => {
     }
 
     @media only screen and (min-width:45.5rem) {
+      .c1 {
+        height: 84.24px;
+      }
+    }
+
+    @media only screen and (min-width:45.5rem) {
+      .c2 {
+        height: 84.24px;
+        top: 84.24px;
+      }
+    }
+
+    @media only screen and (min-width:45.5rem) {
       .c3 {
         font-size: 7.5rem;
       }
