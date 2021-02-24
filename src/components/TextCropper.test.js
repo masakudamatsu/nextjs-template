@@ -65,7 +65,7 @@ test('renders UI correctly', () => {
       margin-top: -0.255em;
     }
 
-    @media only screen and min-width:45.5rem {
+    @media only screen and (min-width:45.5rem) {
       .c3 {
         font-size: 7.5rem;
       }

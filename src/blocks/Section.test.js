@@ -127,7 +127,7 @@ describe('renders UI correctly:', () => {
         margin-top: -0.4195em;
       }
 
-      @media only screen and min-width:45.5rem {
+      @media only screen and (min-width:45.5rem) {
         .c0 {
           font-size: 1.0714rem;
         }
@@ -148,7 +148,7 @@ describe('renders UI correctly:', () => {
         width: 100%;
       }
 
-      @media only screen and min-width:45.5rem {
+      @media only screen and (min-width:45.5rem) {
         .c0 {
           height: 1.9744rem;
         }

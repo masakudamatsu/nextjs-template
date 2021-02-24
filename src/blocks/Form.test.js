@@ -61,7 +61,7 @@ describe('renders UI correctly', () => {
         padding-top: 1.1875rem;
       }
 
-      @media only screen and min-width:45.5rem {
+      @media only screen and (min-width:45.5rem) {
         .c1 {
           padding-bottom: 0.75rem;
           padding-left: 0.375rem;
@@ -102,7 +102,7 @@ describe('renders UI correctly', () => {
         transform: translateX(-0.08em);
       }
 
-      @media only screen and min-width:45.5rem {
+      @media only screen and (min-width:45.5rem) {
         .c1 {
           top: 0.4375rem;
           left: 0.4375rem;
