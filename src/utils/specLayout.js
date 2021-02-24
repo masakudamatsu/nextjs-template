@@ -22,18 +22,17 @@ export const textCropper = {
 
 export const section = {
   xHeight:
-    font.paragraph.xHeight ||
-    font.paragraph.capHeight *
-      (font.paragraph.fontMetrics.xHeight /
-        font.paragraph.fontMetrics.capHeight),
+    font.section.xHeight ||
+    font.section.capHeight *
+      (font.section.fontMetrics.xHeight / font.section.fontMetrics.capHeight),
   get betweenParagraphs() {
     const modularScale =
-      font.paragraph.betweenLinesRatio / font.paragraph.xHeightRatio;
+      font.section.betweenLinesRatio / font.section.xHeightRatio;
     return this.xHeight * Math.pow(modularScale, 2);
   },
   get betweenSections() {
     const modularScale =
-      font.paragraph.betweenLinesRatio / font.paragraph.xHeightRatio;
+      font.section.betweenLinesRatio / font.section.xHeightRatio;
     return this.xHeight * Math.pow(modularScale, 3);
   },
 };
