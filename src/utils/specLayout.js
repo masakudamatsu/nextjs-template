@@ -90,6 +90,11 @@ export const header = {
   },
 };
 
+export const main = {
+  whitespace: {
+    marginTop: header.h1.paddingBottom,
+  },
+};
 // to be used in mediaQuery.js
 
 export const twoColumns = {
