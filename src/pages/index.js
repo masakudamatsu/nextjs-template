@@ -1,13 +1,28 @@
-import H1 from 'src/elements/H1';
-import Noscript from 'src/components/Noscript';
+import BannerForNoJs from 'src/components/BannerForNoJs';
+import Main from 'src/blocks/Main';
+import Section from 'src/blocks/Section';
 import TextCropper from 'src/components/TextCropper';
+import TopAppBar from 'src/components/TopAppBar';
 
 function HomePage() {
   return (
     <>
-      <H1>Next.js Template</H1>
-      <Noscript />
-      <TextCropper />
+      <TopAppBar />
+      <Main>
+        <Main.MarginTop />
+        <Section>
+          <Section.Paragraph>
+            For kick-starting your Next.js project
+          </Section.Paragraph>
+          <Section.Whitespace betweenSections />
+        </Section>
+      </Main>
+      <noscript>
+        <BannerForNoJs />
+      </noscript>
+      <div>
+        <TextCropper />
+      </div>
     </>
   );
 }

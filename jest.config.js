@@ -12,10 +12,16 @@ module.exports = {
   ], // https://jestjs.io/docs/en/configuration#collectcoveragefrom-array
   coverageThreshold: {
     global: {
-      statements: 81,
+      statements: 100,
       branches: 100,
+      functions: 100,
+      lines: 100,
+    },
+    './src/components/TopAppBar.js': {
+      statements: 55,
+      branches: 0,
       functions: 73,
-      lines: 81,
+      lines: 55,
     },
   },
   moduleDirectories: [

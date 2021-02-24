@@ -16,21 +16,62 @@ const onPrimary = '#ffffff';
 const onSecondary = '#000000';
 const onBackground = '#ffffff';
 const onSurface = '#ffffff';
-const onError = '#ffffff';
+const onError = '#0a0a0a';
 
 export const color = {
   body: {
     background: background,
     font: onBackground,
   },
-  header: {
-    background: primary,
-    font: onPrimary,
-    borderBottom: onPrimary,
+  linkText: {
+    background: {
+      default: background,
+      onHover: secondaryShade,
+    },
+    font: 'inherit',
+  },
+  section: {
+    background: surface,
+    font: onSurface,
+    linkText: {
+      background: primaryShade,
+      font: onSurface,
+    },
   },
   banner: {
     background: error,
     font: onError,
+    linkText: {
+      background: secondary,
+      font: onError,
+    },
+  },
+  figure: {
+    border: onBackground,
+  },
+  footer: {
+    background: secondaryShade,
+    borderTop: onSecondary,
+    font: onSecondary,
+    linkText: {
+      background: secondary,
+      font: onSecondary,
+    },
+  },
+  header: {
+    background: secondary,
+    borderBottom: onSecondary,
+    font: onSecondary,
+  },
+  input: {
+    background: background,
+    border: onBackground,
+    font: onBackground,
+  },
+  get label() {
+    return {
+      font: this.input.font,
+    };
   },
   textCropper: {
     blockElement: secondary,
