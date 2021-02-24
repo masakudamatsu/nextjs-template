@@ -20,14 +20,6 @@ export const textCropper = {
   },
 };
 
-export const h1 = {
-  height: font.h1.capHeight,
-  whitespace: {
-    aboveH1: font.h1.capHeight,
-    belowH1: font.h1.capHeight,
-  },
-};
-
 export const section = {
   xHeight:
     font.paragraph.xHeight ||
@@ -70,26 +62,22 @@ export const form = {
 export const header = {
   borderBottomWidth: 1,
   h1: {
-    height: font.h1.capHeight,
+    capHeight: font.h1.capHeight,
+    paddingBottom: font.h1.capHeight,
+    paddingTop: font.h1.capHeight,
   },
+  innerWidth: 303,
   logo: {
-    height: 30,
+    height: 18,
     width: 30,
   },
-  speed: {
-    hide: '.5s',
-    show: '.25s',
-  },
   whitespace: {
-    aboveH1: 15,
-    belowH1: 15,
     betweenLogoAndH1: marginLeft,
+    sideMargin: marginLeft,
   },
-  // get height() {
-  //   return (
-  //     this.capheight.h1 + this.whitespace.aboveH1 + this.whitespace.belowH1
-  //   ); // excludes the border width which will not scale up beyond 728px wide screens
-  // },
+  get height() {
+    return this.h1.paddingTop + this.h1.capHeight + this.h1.paddingBottom; // excludes the border width which will not scale up beyond 728px wide screens
+  },
 };
 
 // to be used in mediaQuery.js

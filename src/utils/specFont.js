@@ -32,14 +32,14 @@ export const typescale = {
     fontMetrics: poppins.thin,
   },
   display: {
-    capHeight: poppins.thin.capHeight / 10,
-    xHeightRatio: 5,
-    betweenLinesRatio: 6,
+    capHeight: 15,
+    xHeightRatio: 3,
+    betweenLinesRatio: 4,
     textCropEm: {
-      top: -0.249,
-      bottom: -0.255,
+      top: -0.304, // from -0.281 to -0.327
+      bottom: -0.3325, // from -0.305 to -0.350
     },
-    fontMetrics: poppins.thin,
+    fontMetrics: poppins.light,
   },
   body: {
     capHeight: 10,

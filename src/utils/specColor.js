@@ -38,6 +38,11 @@ export const color = {
   figure: {
     border: onBackground,
   },
+  header: {
+    background: secondary,
+    borderBottom: onSecondary,
+    font: onSecondary,
+  },
   input: {
     background: background,
     border: onBackground,
@@ -47,11 +52,6 @@ export const color = {
     return {
       font: this.input.font,
     };
-  },
-  header: {
-    background: primary,
-    font: onPrimary,
-    borderBottom: onPrimary,
   },
   textCropper: {
     blockElement: secondary,

@@ -10,11 +10,9 @@ test('renders UI correctly', () => {
   expect(container).toMatchInlineSnapshot(`
     .c0 {
       font-family: 'Poppins',Verdana,sans-serif;
-      font-size: 6.25rem;
-      font-weight: 100;
-      line-height: 1.188;
-      padding-bottom: 4.3875rem;
-      padding-top: 4.3875rem;
+      font-size: 1.3393rem;
+      font-weight: 300;
+      line-height: 1.274;
     }
 
     .c0::before,
@@ -26,16 +24,16 @@ test('renders UI correctly', () => {
     }
 
     .c0::before {
-      margin-bottom: -0.249em;
+      margin-bottom: -0.304em;
     }
 
     .c0::after {
-      margin-top: -0.255em;
+      margin-top: -0.3325em;
     }
 
-    @media only screen and min-width:45.5rem {
+    @media only screen and (min-width:45.5rem) {
       .c0 {
-        font-size: 7.5rem;
+        font-size: 1.6071rem;
       }
     }
 
