@@ -5,8 +5,8 @@ import TemplateBlock from './TemplateBlock';
 
 const mockProps = {};
 
-describe('changes UI with props', () => {
-  test('... if the ... prop is provided', () => {
+describe('Props work as intended', () => {
+  test('testProp', () => {
     render(<TemplateBlock testProp data-testid="TemplateBlock" />);
     expect(screen.getByTestId('TemplateBlock')).toHaveStyle(
       `display: inline-block`,
