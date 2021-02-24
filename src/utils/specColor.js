@@ -38,6 +38,11 @@ export const color = {
   figure: {
     border: onBackground,
   },
+  footer: {
+    background: secondaryShade,
+    borderTop: onSecondary,
+    font: onSecondary,
+  },
   header: {
     background: secondary,
     borderBottom: onSecondary,

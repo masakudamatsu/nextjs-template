@@ -37,6 +37,17 @@ export const section = {
   },
 };
 
+export const footer = {
+  xHeight:
+    font.footer.xHeight ||
+    font.footer.capHeight *
+      (font.footer.fontMetrics.xHeight / font.footer.fontMetrics.capHeight),
+  get betweenParagraphs() {
+    const modularScale =
+      font.footer.betweenLinesRatio / font.footer.xHeightRatio;
+    return this.xHeight * Math.pow(modularScale, 2);
+  },
+};
 export const input = {
   borderWidth: {
     inactive: 1,
