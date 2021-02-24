@@ -4,7 +4,8 @@ import styled from 'styled-components';
 
 import {color} from 'src/utils/specColor';
 import {fontCssGenerator} from 'src/utils/getFontCss';
-import {poppins, typescale} from 'src/utils/specFont';
+import {mediaQuery} from 'src/utils/mediaQuery';
+import {poppins, scale, typescale} from 'src/utils/specFont';
 import {textCropper, sectionDiv} from 'src/utils/specLayout';
 
 const Section = styled.section`
@@ -18,6 +19,9 @@ Section.BlockElement = styled.div`
   background-color: ${color.textCropper.blockElement};
   height: ${textCropper.blockElement.height}px;
   width: 100%;
+  @media only screen and ${mediaQuery.font} {
+    height: ${textCropper.blockElement.height * scale}px;
+  }
 `;
 
 Section.CapHeightBox = styled.div`
@@ -28,6 +32,10 @@ Section.CapHeightBox = styled.div`
   top: ${textCropper.blockElement.height}px;
   width: 100%;
   z-index: -1;
+  @media only screen and ${mediaQuery.font} {
+    height: ${textCropper.capHeightBox.height * scale}px;
+    top: ${textCropper.blockElement.height * scale}px;
+  }
 `;
 
 Section.TextBox = styled.p`
