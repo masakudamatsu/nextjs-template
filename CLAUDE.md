@@ -35,6 +35,14 @@ Create additional files/folders within `memory-bank/` as needed:
 - When user requests with "update memory bank" (MUST review ALL files)
 - When context needs clarification
 
+## Documentation Lookup
+
+Before installing or configuring any tool, always query Context7 for the official documentation first:
+1. Call `resolve-library-id` with the library name and a short description of the task
+2. Call `query-docs` with the returned library ID and a specific question
+
+This ensures all setup steps are based on current docs rather than training data.
+
 ## Cross-Project Context
 
 This project is part of the `~/ClaudeCode` workspace. See the root `CLAUDE.md` for cross-project relationships.
