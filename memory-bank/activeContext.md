@@ -7,11 +7,11 @@ Initial project setup.
 - Created project structure
 - Set up Memory Bank
 - Scaffolded Next.js with App Router and TypeScript
+- Installed and configured Vitest
 
 ## Next Steps
 
 - Install and configure Tailwind CSS
-- Install and configure Vitest
 - Install and configure Playwright
 - Add MCP server configurations for Next.js, Tailwind CSS, Vitest, and Playwright docs
 - Write README.md
