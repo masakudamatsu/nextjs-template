@@ -10,6 +10,14 @@
 - Playwright
 
 ## Development Setup
+
+### Next.js
+
+- `src/app/layout.tsx` — root layout with `<html lang="en">` and `<body>`
+- `src/app/page.tsx` — home page
+- `tsconfig.json` — `moduleResolution: "bundler"`, path alias `@/*` → `./src/*`
+- Scripts: `dev`, `build`, `start`
+
 (To be defined)
 
 ## Technical Constraints

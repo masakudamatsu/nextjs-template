@@ -6,10 +6,10 @@ Initial project setup.
 ## Recent Changes
 - Created project structure
 - Set up Memory Bank
+- Scaffolded Next.js with App Router and TypeScript
 
 ## Next Steps
 
-- Run `create-next-app` with TypeScript to scaffold the base project
 - Install and configure Tailwind CSS
 - Install and configure Vitest
 - Install and configure Playwright

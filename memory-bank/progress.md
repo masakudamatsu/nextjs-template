@@ -3,10 +3,10 @@
 ## What Works
 - Project structure created
 - Memory Bank initialized
+- Next.js scaffolded (App Router, TypeScript)
 
 ## What's Left to Build
 
-- Scaffold Next.js app (App Router, TypeScript)
 - Tailwind CSS installation and configuration
 - Vitest installation and configuration
 - Playwright installation and configuration
