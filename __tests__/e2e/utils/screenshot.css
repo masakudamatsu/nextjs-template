@@ -1,0 +1,4 @@
+/* Hide Next.js dev tools indicator that appears during local development */
+#devtools-indicator {
+  display: none !important;
+}

@@ -7,7 +7,17 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "test": "vitest"
+    "test": "playwright test --project=chromium",
+    "firefox": "playwright test --project=firefox",
+    "safari": "playwright test --project=webkit",
+    "e2e": "playwright test --ui",
+    "unit": "vitest",
+    "debug": "playwright test --debug",
+    "reg": "npm run test:regression",
+    "test:vitest": "vitest run",
+    "test:playwright": "playwright test",
+    "test:regression": "npm run test:vitest && npm run test:playwright",
+    "update": "playwright test --last-failed --update-snapshots"
   },
   "keywords": [],
   "author": "Masa Kudamatsu <masakudamatsu@gmail.com>",
@@ -18,6 +28,7 @@
     "react-dom": "19.2.4"
   },
   "devDependencies": {
+    "@playwright/test": "1.58.2",
     "@testing-library/dom": "10.4.1",
     "@testing-library/react": "16.3.2",
     "@testing-library/user-event": "14.6.1",
