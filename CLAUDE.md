@@ -10,18 +10,19 @@ The Memory Bank consists of required core files and optional context files, all 
 
 ### Core Files (Required)
 
-| File | Purpose |
-|------|---------|
-| `projectbrief.md` | Foundation document: core requirements, goals, project scope |
-| `productContext.md` | Why this project exists, problems it solves, UX goals |
-| `activeContext.md` | Current work focus, recent changes, next steps, active decisions |
-| `systemPatterns.md` | Architecture, design patterns, component relationships |
-| `techContext.md` | Tech stack, dev setup, constraints, dependencies |
-| `progress.md` | What works, what's left, current status, known issues |
+| File                | Purpose                                                          |
+| ------------------- | ---------------------------------------------------------------- |
+| `projectbrief.md`   | Foundation document: core requirements, goals, project scope     |
+| `productContext.md` | Why this project exists, problems it solves, UX goals            |
+| `activeContext.md`  | Current work focus, recent changes, next steps, active decisions |
+| `systemPatterns.md` | Architecture, design patterns, component relationships           |
+| `techContext.md`    | Tech stack, dev setup, constraints, dependencies                 |
+| `progress.md`       | What works, what's left, current status, known issues            |
 
 ### Additional Context
 
 Create additional files/folders within `memory-bank/` as needed:
+
 - Complex feature documentation
 - Integration specifications
 - API documentation
@@ -38,6 +39,7 @@ Create additional files/folders within `memory-bank/` as needed:
 ## Documentation Lookup
 
 Before installing or configuring any tool, always query Context7 for the official documentation first:
+
 1. Call `resolve-library-id` with the library name and a short description of the task
 2. Call `query-docs` with the returned library ID and a specific question
 

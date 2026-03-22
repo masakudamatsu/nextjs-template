@@ -1,6 +1,7 @@
 # Progress
 
 ## What Works
+
 - Project structure created
 - Memory Bank initialized
 - Next.js scaffolded (App Router, TypeScript)
@@ -15,7 +16,9 @@
 - Publish as a public GitHub repository
 
 ## Current Status
+
 Initial setup phase.
 
 ## Known Issues
+
 (None yet)

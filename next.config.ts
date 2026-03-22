@@ -1,5 +1,5 @@
-import type { NextConfig } from "next";
-import path from "path";
+import type { NextConfig } from 'next'
+import path from 'path'
 
 const nextConfig: NextConfig = {
   turbopack: {
@@ -8,6 +8,6 @@ const nextConfig: NextConfig = {
     // Pinning the root to this directory fixes it.
     root: path.resolve(__dirname),
   },
-};
+}
 
-export default nextConfig;
+export default nextConfig

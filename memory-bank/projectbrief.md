@@ -1,9 +1,11 @@
 # Project Brief
 
 ## Project Name
+
 nextjs-template
 
 ## Overview
+
 A template GitHub repository for bootstrapping Next.js applications.
 
 ## Core Requirements
