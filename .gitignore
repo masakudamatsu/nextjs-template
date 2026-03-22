@@ -30,7 +30,8 @@ Thumbs.db
 *.swp
 *.swo
 .idea/
-.vscode/
+.vscode/*
+!.vscode/extensions.json
 
 # Misc
 *.log
