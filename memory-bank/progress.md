@@ -11,6 +11,7 @@
 - ESLint installed and configured (flat config)
 - Prettier installed and configured (exact-pinned)
 - Metadata and robots implemented (`page.tsx`, `layout.tsx`) with Playwright tests
+- Sitemap (`sitemap.ts`) and 404 page (`not-found.tsx`) implemented with Playwright e2e tests
 
 ## What's Left to Build
 

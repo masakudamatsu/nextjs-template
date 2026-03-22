@@ -12,6 +12,7 @@ Initial project setup.
 - Configured MCP servers (Next.js, Tailwind CSS, Vitest, Playwright docs via Context7)
 - Installed and configured ESLint (flat config: `core-web-vitals` + `typescript` + `prettier`) and Prettier (exact-pinned)
 - Added metadata and robots tests (Playwright); implemented metadata in `page.tsx` and `layout.tsx`
+- Added `sitemap.ts` (generates `/sitemap.xml` via `SITE_URL` env var + `PAGES` array) and `not-found.tsx` (custom 404 page) with Playwright e2e tests
 
 ## Next Steps
 
