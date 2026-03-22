@@ -17,7 +17,10 @@
     "test:vitest": "vitest run",
     "test:playwright": "playwright test",
     "test:regression": "npm run test:vitest && npm run test:playwright",
-    "update": "playwright test --last-failed --update-snapshots"
+    "update": "playwright test --last-failed --update-snapshots",
+    "lint": "eslint .",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check"
   },
   "keywords": [],
   "author": "Masa Kudamatsu <masakudamatsu@gmail.com>",
@@ -37,7 +40,11 @@
     "@types/react-dom": "19.2.3",
     "@vitejs/plugin-react": "6.0.1",
     "dotenv": "17.3.1",
+    "eslint": "9.39.4",
+    "eslint-config-next": "16.2.1",
+    "eslint-config-prettier": "10.1.8",
     "jsdom": "29.0.1",
+    "prettier": "3.8.1",
     "typescript": "5.9.3",
     "vite-tsconfig-paths": "6.1.1",
     "vitest": "4.1.0"

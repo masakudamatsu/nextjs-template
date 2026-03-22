@@ -43,6 +43,14 @@ Before installing or configuring any tool, always query Context7 for the officia
 
 This ensures all setup steps are based on current docs rather than training data.
 
+## Prettier
+
+Prettier is pinned to an exact version (no `^`). To upgrade:
+
+```bash
+npm install --save-dev --save-exact prettier@latest
+```
+
 ## Cross-Project Context
 
 This project is part of the `~/ClaudeCode` workspace. See the root `CLAUDE.md` for cross-project relationships.
