@@ -40,8 +40,11 @@ Config: `playwright.config.ts`. Test files live in `__tests__/e2e/` with `*.spec
 Key decisions:
 
 - All three browsers enabled: Chromium (default for local dev), Firefox, WebKit
-- `webServer` auto-starts `npm run dev` before tests; `reuseExistingServer: !process.env.CI` reuses a running server locally
+- `webServer` is an array of two servers: port 3000 (default env) and port 3001 (`APP_ENV=production`, `NEXT_DIST_DIR=.next-prod`). The production server uses a separate `distDir` to avoid Next.js 16's single-instance lock file conflict (`.next/dev/lock`).
+- The production robots test uses `test.use({ baseURL: 'http://localhost:3001' })` inside a `test.describe` block to target the production server.
+- `reuseExistingServer: !process.env.CI` reuses running servers locally
 - `next.config.ts` sets `turbopack.root` to pin the project root — without it, Turbopack may detect the parent directory's `package-lock.json` as the workspace root and fails to resolve modules (if the repository is cloned into another Node.js project folder)
+- `next.config.ts` sets `distDir: process.env.NEXT_DIST_DIR ?? '.next'` to support the two-server Playwright setup; `.next-prod/` is gitignored
 - `expect.toHaveScreenshot.stylePath` points to `__tests__/e2e/utils/screenshot.css`, which hides `#devtools-indicator` in all screenshots
 - Visual regression thresholds (`maxDiffPixels`, `maxDiffPixelRatio`) are left at the strict defaults (0); relax per test when needed
 - `ignoreSnapshots: !!process.env.CI` skips `toHaveScreenshot()` comparisons on CI — snapshots are OS-specific (`-darwin`/`-linux`) so macOS baselines would fail on Linux CI runners; the pre-push hook (`npm run reg`) is the safety net instead

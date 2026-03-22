@@ -12,7 +12,11 @@ Next.js App Router — file-system routing under `app/`, server and client compo
 
 ## Design Patterns
 
-(To be defined as the template develops)
+### Metadata
+
+- **Page-level metadata** (`title`, `description`) — export a `metadata` const from `src/app/page.tsx` (and future page files). Values are sourced from `src/app/lib/metadata.json` so they stay in sync with Playwright tests.
+- **Site-wide metadata** (`robots`) — export a `metadata` const from `src/app/layout.tsx`. Robots defaults to `{ index: false, follow: false }` in all non-production environments; `undefined` (allow indexing) when `APP_ENV=production`.
+- This separation follows Google's recommendation: each page has its own title/description, while robots is a global setting.
 
 ## Component Relationships
 

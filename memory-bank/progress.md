@@ -10,11 +10,11 @@
 - MCP servers configured (Next.js, Tailwind CSS, Vitest, Playwright docs via Context7)
 - ESLint installed and configured (flat config)
 - Prettier installed and configured (exact-pinned)
+- Metadata and robots implemented (`page.tsx`, `layout.tsx`) with Playwright tests
 
 ## What's Left to Build
 
 - Tailwind CSS installation and configuration
-- Metadata tests
 - Write README.md
 - Publish as a public GitHub repository
 - Husky pre-push hook (`npm run lint && npm run reg`)
