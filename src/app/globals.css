@@ -1,1 +1,6 @@
 @import 'tailwindcss';
+
+@theme {
+  --color-off-black: #111111; /* https://www.linkedin.com/pulse/say-goodbye-pure-black-white-ui-design-mohammad-mosharrof-hossain */
+  --color-off-white: #e8e8e8; /* https://tangledweb.xyz/good-article-and-important-f251b70545de */
+}
