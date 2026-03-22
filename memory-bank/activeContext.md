@@ -6,20 +6,21 @@ Initial project setup.
 
 ## Recent Changes
 
-- Created project structure
-- Set up Memory Bank
 - Scaffolded Next.js with App Router and TypeScript
 - Installed and configured Vitest
 - Installed and configured Playwright
+- Configured MCP servers (Next.js, Tailwind CSS, Vitest, Playwright docs via Context7)
+- Installed and configured ESLint (flat config: `core-web-vitals` + `typescript` + `prettier`) and Prettier (exact-pinned)
 
 ## Next Steps
 
 - Install and configure Tailwind CSS
-- Add MCP server configurations for Next.js, Tailwind CSS, Vitest, and Playwright docs
-- Write README.md
+- Add metadata tests
+- Write README.md (including editor setup: install Prettier extension + format-on-save)
 - Publish as a public GitHub repository
-- Install Husky to enforce `npm run reg` as a pre-push hook (blocked until GitHub repo is set up so the hook can be tested with a real remote)
+- Install Husky to enforce `npm run lint && npm run reg` as a pre-push hook (blocked until GitHub repo is set up)
 
 ## Active Decisions
 
-(None yet)
+- Prettier pinned with `--save-exact` (no `^`); upgrade with `npm install --save-dev --save-exact prettier@latest`
+- Playwright visual regression snapshots skipped on CI (OS-specific); pre-push hook is the safety net

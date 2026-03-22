@@ -7,13 +7,17 @@
 - Next.js scaffolded (App Router, TypeScript)
 - Vitest installed and configured
 - Playwright installed and configured
+- MCP servers configured (Next.js, Tailwind CSS, Vitest, Playwright docs via Context7)
+- ESLint installed and configured (flat config)
+- Prettier installed and configured (exact-pinned)
 
 ## What's Left to Build
 
 - Tailwind CSS installation and configuration
-- MCP server configuration for Next.js, Tailwind CSS, Vitest, Playwright docs
+- Metadata tests
 - Write README.md
 - Publish as a public GitHub repository
+- Husky pre-push hook (`npm run lint && npm run reg`)
 
 ## Current Status
 

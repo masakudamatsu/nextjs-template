@@ -8,6 +8,8 @@
 - Tailwind CSS
 - Vitest
 - Playwright
+- ESLint
+- Prettier
 
 ## Development Setup
 
@@ -45,6 +47,29 @@ Key decisions:
 - `ignoreSnapshots: !!process.env.CI` skips `toHaveScreenshot()` comparisons on CI — snapshots are OS-specific (`-darwin`/`-linux`) so macOS baselines would fail on Linux CI runners; the pre-push hook (`npm run reg`) is the safety net instead
 - `npm run update` (`playwright test --last-failed --update-snapshots`) regenerates baselines only for previously-failed tests
 
+### ESLint
+
+Config: `eslint.config.mjs` (flat config format, required by Next.js 16+).
+
+Key decisions:
+
+- `eslint-config-next/core-web-vitals` — Next.js + React + React Hooks rules; upgrades CWV-impacting rules from warnings to errors
+- `eslint-config-next/typescript` — adds `typescript-eslint/recommended` rules
+- `eslint-config-prettier/flat` — disables ESLint formatting rules that conflict with Prettier (must be last)
+- `globalIgnores` excludes `.next/`, `out/`, `build/`, `next-env.d.ts`
+- `next lint` was removed in Next.js 16; use `npm run lint` (`eslint .`) instead
+
+### Prettier
+
+Config: `.prettierrc` (`semi: false`, `singleQuote: true`, `trailingComma: "all"`). Ignore file: `.prettierignore`.
+
+Key decisions:
+
+- Pinned with `--save-exact` (no `^`) per Prettier's recommendation, to prevent formatting churn across versions
+- To upgrade: `npm install --save-dev --save-exact prettier@latest`
+- Run on save via editor Prettier extension (format-on-save); no pre-commit hook needed since unsaved files can't be committed
+- `npm run format:check` is the CI gate for non-VS Code contributors
+
 ### npm scripts
 
 | Script                    | Command                                            | When to use                                     |
@@ -58,6 +83,9 @@ Key decisions:
 | `npm run update`          | `playwright test --last-failed --update-snapshots` | Update snapshots after intentional UI changes   |
 | `npm run reg`             | → `test:regression`                                | Pre-push full regression suite (all 3 browsers) |
 | `npm run test:regression` | `vitest run && playwright test`                    | CI / pre-push                                   |
+| `npm run lint`            | `eslint .`                                         | Check for code quality issues                   |
+| `npm run format`          | `prettier . --write`                               | Auto-format all files                           |
+| `npm run format:check`    | `prettier . --check`                               | CI formatting gate                              |
 
 ## Technical Constraints
 
@@ -70,10 +98,9 @@ Dev dependencies:
 - `tailwindcss`, `@tailwindcss/postcss`
 - `vitest`, `@vitejs/plugin-react`, `jsdom`, `@testing-library/react`, `@testing-library/dom`, `@testing-library/user-event`, `vite-tsconfig-paths`, `dotenv`
 - `@playwright/test`
+- `eslint`, `eslint-config-next`, `eslint-config-prettier`
+- `prettier` (exact-pinned)
 
 ## MCP Servers
 
-- Next.js docs
-- Tailwind CSS docs
-- Vitest docs
-- Playwright docs
+- Context7
