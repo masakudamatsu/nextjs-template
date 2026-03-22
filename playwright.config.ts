@@ -75,7 +75,7 @@ export default defineConfig({
     {
       command: 'npm run dev -- --port 3001',
       url: 'http://localhost:3001',
-      env: { APP_ENV: 'production', NEXT_DIST_DIR: '.next-prod' },
+      env: { APP_ENV: 'production', NEXT_DIST_DIR: '.next-prod', SITE_URL: 'http://localhost:3001' },
       reuseExistingServer: !process.env.CI,
       timeout: 120 * 1000,
     },
