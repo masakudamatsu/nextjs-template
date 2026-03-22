@@ -13,10 +13,12 @@ Initial project setup.
 - Installed and configured ESLint (flat config: `core-web-vitals` + `typescript` + `prettier`) and Prettier (exact-pinned)
 - Added metadata and robots tests (Playwright); implemented metadata in `page.tsx` and `layout.tsx`
 - Added `sitemap.ts` (generates `/sitemap.xml` via `SITE_URL` env var + `PAGES` array) and `not-found.tsx` (custom 404 page) with Playwright e2e tests
+- Installed Tailwind CSS v4 (`tailwindcss`, `@tailwindcss/postcss` as dev deps); configured via `postcss.config.mjs` and `src/app/globals.css`
+- Set default body styles: `bg-off-white min-h-screen text-off-black`; `antialiased` on `<html>` to prevent blurry text on macOS/Firefox
+- Defined `off-black` (`#111111`) and `off-white` (`#e8e8e8`) as custom Tailwind theme colors via `@theme` in `globals.css`
 
 ## Next Steps
 
-- Install and configure Tailwind CSS
 - Write README.md (including editor setup: install Prettier extension + format-on-save)
 - Publish as a public GitHub repository
 - Install Husky to enforce `npm run lint && npm run reg` as a pre-push hook (blocked until GitHub repo is set up)

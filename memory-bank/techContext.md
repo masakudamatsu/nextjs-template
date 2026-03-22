@@ -50,6 +50,17 @@ Key decisions:
 - `ignoreSnapshots: !!process.env.CI` skips `toHaveScreenshot()` comparisons on CI — snapshots are OS-specific (`-darwin`/`-linux`) so macOS baselines would fail on Linux CI runners; the pre-push hook (`npm run reg`) is the safety net instead
 - `npm run update` (`playwright test --last-failed --update-snapshots`) regenerates baselines only for previously-failed tests
 
+### Tailwind CSS
+
+Tailwind v4 — no `tailwind.config.js`; all config is CSS-based.
+
+Key decisions:
+
+- `@tailwindcss/postcss` (not the old `tailwindcss` PostCSS plugin) handles processing; configured in `postcss.config.mjs`
+- `src/app/globals.css` is the single CSS entry point: `@import 'tailwindcss'` + `@theme {}` block for custom design tokens
+- Installed as dev dependencies (build-time only); no explicit `postcss` package needed — Next.js provides it internally
+- Custom colors (`off-black`, `off-white`) defined as CSS custom properties under `@theme` and consumed via utility classes
+
 ### ESLint
 
 Config: `eslint.config.mjs` (flat config format, required by Next.js 16+).
