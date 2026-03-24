@@ -13,10 +13,11 @@
 - Metadata and robots implemented (`page.tsx`, `layout.tsx`) with Playwright tests
 - Sitemap (`sitemap.ts`) and 404 page (`not-found.tsx`) implemented with Playwright e2e tests
 - Tailwind CSS v4 installed and configured; default body/html styles set
+- README.md written (Getting Started, Scripts, Editor Setup, Environment Variables)
+- `npm run setup` script added (`scripts/setup.js`) — initializes a fork's `memory-bank/` and `CLAUDE.md` with blank starters
 
 ## What's Left to Build
 
-- Write README.md
 - Publish as a public GitHub repository
 - Husky pre-push hook (`npm run lint && npm run reg`)
 

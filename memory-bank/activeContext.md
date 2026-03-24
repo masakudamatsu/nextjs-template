@@ -16,10 +16,11 @@ Initial project setup.
 - Installed Tailwind CSS v4 (`tailwindcss`, `@tailwindcss/postcss` as dev deps); configured via `postcss.config.mjs` and `src/app/globals.css`
 - Set default body styles: `bg-off-white min-h-screen text-off-black`; `antialiased` on `<html>` to prevent blurry text on macOS/Firefox
 - Defined `off-black` (`#111111`) and `off-white` (`#e8e8e8`) as custom Tailwind theme colors via `@theme` in `globals.css`
+- Written README.md (Getting Started, Scripts, Editor Setup, Environment Variables)
+- Added `npm run setup` script (`scripts/setup.js`) — clears `memory-bank/`, moves `projectbrief-sample.md` → `memory-bank/projectbrief.md` and `CLAUDE-sample.md` → `CLAUDE.md`; run once after forking
 
 ## Next Steps
 
-- Write README.md (including editor setup: install Prettier extension + format-on-save)
 - Publish as a public GitHub repository
 - Install Husky to enforce `npm run lint && npm run reg` as a pre-push hook (blocked until GitHub repo is set up)
 
