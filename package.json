@@ -20,7 +20,8 @@
     "update": "playwright test --last-failed --update-snapshots",
     "lint": "eslint .",
     "format": "prettier . --write",
-    "format:check": "prettier . --check"
+    "format:check": "prettier . --check",
+    "setup": "node scripts/setup.js"
   },
   "keywords": [],
   "author": "Masa Kudamatsu <masakudamatsu@gmail.com>",

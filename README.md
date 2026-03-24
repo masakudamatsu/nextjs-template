@@ -19,9 +19,12 @@ Fork this repo on GitHub, then:
 git clone <your-fork-url>
 cd nextjs-template
 npm install
+npm run setup
 cp .env.local.example .env.local
 npm run dev
 ```
+
+`npm run setup` replaces the template's `CLAUDE.md` and `memory-bank/` with blank starters for your project. Run it once right after cloning.
 
 ## Scripts
 
