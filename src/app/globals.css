@@ -23,4 +23,12 @@
     overflow-wrap: break-word; /* Wrap long text like URLs */
     text-wrap: balance; /* Avoid two few words in the last line of a heading: see https://css-tricks.com/almanac/properties/t/text-wrap-style/ */
   }
+  @layer utilities {
+    /* Prevent iPhone in landscape orientation from enlarging text: see https://kilianvalkhof.com/2022/css-html/your-css-reset-needs-text-size-adjust-probably/ */
+    .text-size-adjust-none {
+      -moz-text-size-adjust: none;
+      -webkit-text-size-adjust: none;
+      text-size-adjust: none;
+    }
+  }
 }

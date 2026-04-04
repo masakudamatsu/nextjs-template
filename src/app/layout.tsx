@@ -14,7 +14,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="antialiased motion-safe:scroll-smooth">
+    <html lang="en" className="antialiased motion-safe:scroll-smooth text-size-adjust-none">
       <body className="bg-off-white min-h-screen text-off-black">
         {children}
       </body>
