@@ -5,10 +5,18 @@ const path = require('node:path')
 const root = path.join(__dirname, '..')
 const memoryBankDir = path.join(root, 'memory-bank')
 
-// Step 1: Delete all files in memory-bank/
-for (const entry of fs.readdirSync(memoryBankDir)) {
+// Step 1: Delete only the project-specific memory-bank files.
+// systemPatterns.md and techContext.md are kept — they describe the
+// inherited tech stack and remain accurate for any fork.
+const toDelete = [
+  'projectbrief.md',
+  'productContext.md',
+  'activeContext.md',
+  'progress.md',
+]
+for (const entry of toDelete) {
   const filePath = path.join(memoryBankDir, entry)
-  if (fs.statSync(filePath).isFile()) {
+  if (fs.existsSync(filePath)) {
     fs.rmSync(filePath)
     console.log(`Deleted memory-bank/${entry}`)
   }

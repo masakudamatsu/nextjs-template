@@ -19,6 +19,8 @@ The Memory Bank consists of required core files and optional context files, all 
 | `techContext.md`    | Tech stack, dev setup, constraints, dependencies                 |
 | `progress.md`       | What works, what's left, current status, known issues            |
 
+`systemPatterns.md` and `techContext.md` are pre-populated from the nextjs-template toolchain. When initializing the memory bank, **do not recreate these files from scratch** — treat them as the authoritative baseline. Update them only where `projectbrief.md` requires changes to the configuration or tech stack.
+
 ### Additional Context
 
 Create additional files/folders within `memory-bank/` as needed:
@@ -44,3 +46,11 @@ Before installing or configuring any tool, always query Context7 for the officia
 2. Call `query-docs` with the returned library ID and a specific question
 
 This ensures all setup steps are based on current docs rather than training data.
+
+## Prettier
+
+Prettier is pinned to an exact version (no `^`). To upgrade:
+
+```bash
+npm install --save-dev --save-exact prettier@latest
+```
