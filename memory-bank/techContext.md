@@ -10,6 +10,7 @@
 - Playwright
 - ESLint
 - Prettier
+- Semantic Release
 
 ## Development Setup
 
@@ -114,6 +115,18 @@ Dev dependencies:
 - `@playwright/test`
 - `eslint`, `eslint-config-next`, `eslint-config-prettier`
 - `prettier` (exact-pinned)
+
+### Semantic Release
+
+Config: `.releaserc` (JSON). Plugins: `commit-analyzer`, `release-notes-generator`, `github`, `git`.
+
+CI: `.github/workflows/release.yml` — runs on push to `main` via `cycjimmy/semantic-release-action@v4`.
+
+Key decisions:
+
+- Branches: `main` only (configured in `.releaserc`)
+- `dry_run: true` set in the workflow action's `with` block — test mode; set to `false` when ready to publish real releases
+- `@semantic-release/git` commits back `package.json` with the bumped version and `[skip ci]` to avoid re-triggering the workflow
 
 ## MCP Servers
 

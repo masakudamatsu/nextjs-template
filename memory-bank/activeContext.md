@@ -18,6 +18,7 @@ Initial project setup.
 - Defined `off-black` (`#111111`) and `off-white` (`#e8e8e8`) as custom Tailwind theme colors via `@theme` in `globals.css`
 - Written README.md (Getting Started, Scripts, Editor Setup, Environment Variables)
 - Added `npm run setup` script (`scripts/setup.js`) — clears `memory-bank/`, moves `projectbrief-sample.md` → `memory-bank/projectbrief.md` and `CLAUDE-sample.md` → `CLAUDE.md`; run once after forking
+- Added Semantic Release (`release.yml` + `.releaserc`) — currently in dry-run mode
 
 ## Next Steps
 
