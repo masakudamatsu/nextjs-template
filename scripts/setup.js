@@ -27,6 +27,7 @@ async function main() {
   pkg.description = description
   pkg.version = '1.0.0'
   pkg.author = author
+  delete pkg.scripts.setup
   fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, 2) + '\n')
   console.log(
     `Updated package.json (name: "${name}", author: "${author}", version reset to 1.0.0)`,
@@ -82,7 +83,16 @@ async function main() {
     console.log('Removed Setup Script section from memory-bank/techContext.md')
   }
 
-  // Step 7: Delete this script — it's a one-time setup tool and is no longer
+  // Step 7: Copy .env.local.example → .env.local so the dev server works out of the box.
+  // Skip if .env.local already exists (e.g. re-running setup).
+  const envExamplePath = path.join(root, '.env.local.example')
+  const envLocalPath = path.join(root, '.env.local')
+  if (fs.existsSync(envExamplePath) && !fs.existsSync(envLocalPath)) {
+    fs.copyFileSync(envExamplePath, envLocalPath)
+    console.log('Copied .env.local.example → .env.local')
+  }
+
+  // Step 8: Delete this script — it's a one-time setup tool and is no longer
   // needed once the fork is initialized. Node.js has already loaded it into
   // memory, so deleting the file mid-execution is safe.
   fs.rmSync(__filename)

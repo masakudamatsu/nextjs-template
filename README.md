@@ -20,7 +20,6 @@ git clone <your-fork-url>
 cd nextjs-template
 npm install
 npm run setup
-cp .env.local.example .env.local
 npm run dev
 ```
 
@@ -56,7 +55,7 @@ as recommended by the [Prettier docs](https://prettier.io/docs/install).
 
 ## Environment variables
 
-Copy `.env.local.example` to `.env.local`:
+Running the `setup` script should have copied `.env.local.example` to `.env.local`:
 
 - `APP_ENV` — controls robots/indexing. Set to `"production"` to allow search engine indexing; any other value (`"local"`, `"staging"`) disables indexing.
 - `SITE_URL` — canonical URL of your site, used for sitemap generation. Set to your domain in production.
