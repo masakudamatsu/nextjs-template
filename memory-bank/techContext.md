@@ -128,6 +128,20 @@ Key decisions:
 - `dry_run: true` set in the workflow action's `with` block — test mode; set to `false` when ready to publish real releases
 - `@semantic-release/git` commits back `package.json` with the bumped version and `[skip ci]` to avoid re-triggering the workflow
 
+### Setup Script (`npm run setup`)
+
+Run once after forking the template. Prompts for app details, updates `package.json`, initializes the memory bank, and removes this section from `techContext.md`.
+
+Steps:
+1. Prompts for app name (default: `my-nextjs-app`), description, and author
+2. Updates `package.json`: sets `name`, `description`, `author`; resets `version` to `1.0.0`
+3. Deletes project-specific memory bank files (`projectbrief.md`, `productContext.md`, `activeContext.md`, `progress.md`)
+4. Moves `projectbrief-sample.md` → `memory-bank/projectbrief.md`
+5. Moves `CLAUDE-sample.md` → `CLAUDE.md`
+6. Removes this section from `techContext.md`
+
+`systemPatterns.md` and the rest of `techContext.md` are preserved — they describe the inherited tech stack and remain accurate for any fork.
+
 ## MCP Servers
 
 - Context7

@@ -17,7 +17,7 @@ Initial project setup.
 - Set default body styles: `bg-off-white min-h-screen text-off-black`; `antialiased` on `<html>` to prevent blurry text on macOS/Firefox
 - Defined `off-black` (`#111111`) and `off-white` (`#e8e8e8`) as custom Tailwind theme colors via `@theme` in `globals.css`
 - Written README.md (Getting Started, Scripts, Editor Setup, Environment Variables)
-- Added `npm run setup` script (`scripts/setup.js`) — clears `memory-bank/`, moves `projectbrief-sample.md` → `memory-bank/projectbrief.md` and `CLAUDE-sample.md` → `CLAUDE.md`; run once after forking
+- Added `npm run setup` script (`scripts/setup.js`) — prompts for app name and description, resets `version` to `1.0.0` in `package.json`, clears `memory-bank/`, moves `projectbrief-sample.md` → `memory-bank/projectbrief.md` and `CLAUDE-sample.md` → `CLAUDE.md`; run once after forking
 - Added Semantic Release (`release.yml` + `.releaserc`) — currently in dry-run mode
 
 ## Next Steps
