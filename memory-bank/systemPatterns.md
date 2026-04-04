@@ -24,7 +24,12 @@ Next.js App Router — file-system routing under `app/`, server and client compo
 
 - **Entry point** — `src/app/globals.css` imported in `src/app/layout.tsx`. Contains `@import 'tailwindcss'` and any `@theme` overrides.
 - **Custom theme colors** — defined with CSS variables in `@theme {}` block in `globals.css`. Current tokens: `off-black` (`#111111`), `off-white` (`#e8e8e8`). Use these via Tailwind classes (`text-off-black`, `bg-off-white`, etc.).
-- **Default layout styles** — `<html>` has `antialiased` (prevents blurry text on macOS/Firefox); `<body>` has `bg-off-white min-h-screen text-off-black` (off-white background covering the full viewport height, off-black text).
+- **Default layout styles** — `<html>` has `antialiased motion-safe:scroll-smooth scroll-pt-header text-size-adjust-none`; `<body>` has `bg-off-white min-h-screen text-off-black` (off-white background covering the full viewport height, off-black text).
+- **CSS Resets** (`globals.css` `@layer base`) — applied globally:
+  - *Text wrapping*: `address`, `figcaption`, `p` get `overflow-wrap: break-word` + `text-wrap: pretty` (avoids orphans). `h1`–`h6` get `overflow-wrap: break-word` + `text-wrap: balance` (avoids sparse last lines in headings).
+  - *iPhone landscape text-size*: `.text-size-adjust-none` utility (all three vendor-prefix variants) is defined and applied to `<html>` in `layout.tsx`, preventing auto text-size enlargement when iPhone rotates to landscape.
+- **Smooth scroll** — `motion-safe:scroll-smooth` on `<html>` (`layout.tsx`). Respects `prefers-reduced-motion`. Helps users maintain spatial memory when navigating via anchor links.
+- **Scroll padding for sticky header** — `--header-height: 0` on `:root`; exposed as `--spacing-header` in `@theme` → Tailwind class `scroll-pt-header` applied to `<html>`. When adding a sticky/fixed header, update `--header-height` to the header's actual height so anchor-linked sections aren't hidden beneath it.
 - **No `tailwind.config.js`** — Tailwind v4 uses CSS-only config; all customization lives in `globals.css`.
 - **PostCSS** — `postcss.config.mjs` uses `@tailwindcss/postcss` plugin (the v4 integration; not the old `tailwindcss` plugin).
 
