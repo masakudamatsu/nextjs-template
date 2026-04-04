@@ -13,18 +13,21 @@
 - Metadata and robots implemented (`page.tsx`, `layout.tsx`) with Playwright tests
 - Sitemap (`sitemap.ts`) and 404 page (`not-found.tsx`) implemented with Playwright e2e tests
 - Tailwind CSS v4 installed and configured; default body/html styles set
-- README.md written (Getting Started, Scripts, Editor Setup, Environment Variables)
-- `npm run setup` script added (`scripts/setup.js`) — initializes a fork's `memory-bank/` and `CLAUDE.md` with blank starters
+- README.md written (Getting Started, Agentic Coding, Scripts, Environment Variables)
+- `npm run setup` script added — updates `package.json`, copies `.env.local.example`, resets memory bank, removes itself
 - Semantic Release configured (dry-run mode)
+- Published as public GitHub template repository (`github.com/masakudamatsu/nextjs-template`); "Template repository" enabled
+- MIT `LICENSE` added
+- GitHub Actions upgraded to Node.js 24 (`actions/checkout@v6`, `actions/setup-node@v6`, `cycjimmy/semantic-release-action@v6`)
 
 ## What's Left to Build
 
-- Publish as a public GitHub repository
 - Husky pre-push hook (`npm run lint && npm run reg`)
+- Activate Semantic Release (`dry_run: false`)
 
 ## Current Status
 
-Initial setup phase.
+Template published and publicly available.
 
 ## Known Issues
 

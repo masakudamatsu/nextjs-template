@@ -17,13 +17,15 @@ Initial project setup.
 - Set default body styles: `bg-off-white min-h-screen text-off-black`; `antialiased` on `<html>` to prevent blurry text on macOS/Firefox
 - Defined `off-black` (`#111111`) and `off-white` (`#e8e8e8`) as custom Tailwind theme colors via `@theme` in `globals.css`
 - Written README.md (Getting Started, Scripts, Editor Setup, Environment Variables)
-- Added `npm run setup` script (`scripts/setup.js`) — prompts for app name and description, resets `version` to `1.0.0` in `package.json`, clears `memory-bank/`, moves `projectbrief-sample.md` → `memory-bank/projectbrief.md` and `CLAUDE-sample.md` → `CLAUDE.md`; run once after forking
+- Added `npm run setup` script (`scripts/setup.js`) — prompts for app name, description, and author; updates `package.json`; copies `.env.local.example` → `.env.local`; resets memory bank; moves `projectbrief-sample.md` → `memory-bank/projectbrief.md` and `CLAUDE-sample.md` → `CLAUDE.md`; removes `setup` script entry from `package.json`; deletes itself; run once after forking
 - Added Semantic Release (`release.yml` + `.releaserc`) — currently in dry-run mode
+- Published as public GitHub template repository at `github.com/masakudamatsu/nextjs-template`; "Template repository" enabled; GitHub Actions upgraded to Node.js 24 (`actions/checkout@v6`, `actions/setup-node@v6`, `cycjimmy/semantic-release-action@v6`)
+- Added `LICENSE` (MIT, 2026)
 
 ## Next Steps
 
-- Publish as a public GitHub repository
-- Install Husky to enforce `npm run lint && npm run reg` as a pre-push hook (blocked until GitHub repo is set up)
+- Install Husky to enforce `npm run lint && npm run reg` as a pre-push hook
+- Activate Semantic Release (set `dry_run: false` in `release.yml`)
 
 ## Active Decisions
 
