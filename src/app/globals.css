@@ -3,10 +3,15 @@
 @theme {
   --color-off-black: #111111; /* https://www.linkedin.com/pulse/say-goodbye-pure-black-white-ui-design-mohammad-mosharrof-hossain */
   --color-off-white: #e8e8e8; /* https://tangledweb.xyz/good-article-and-important-f251b70545de */
+  --spacing-header: var(--header-height);
 }
 
 /* CSS Resest */
 @layer base {
+  /* Header height */
+  :root {
+    --header-height: 0;
+  }
   /* https://www.joshwcomeau.com/css/custom-css-reset/ */
   address,
   figcaption,
