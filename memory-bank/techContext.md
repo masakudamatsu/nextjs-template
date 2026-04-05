@@ -27,7 +27,7 @@ Config: `vitest.config.mts`. Test files live in `__tests__/vitest/` with `*.{tes
 
 Key decisions:
 
-- `vite-tsconfig-paths` plugin resolves the `@/*` alias from `tsconfig.json`
+- `resolve: { tsconfigPaths: true }` in `vitest.config.mts` resolves the `@/*` alias from `tsconfig.json` — Vite 6 native feature; `vite-tsconfig-paths` plugin is no longer needed
 - `@vitejs/plugin-react` plugin is required to transform JSX/TSX in test files
 - `environment: "jsdom"` simulates a browser environment for React component tests
 - `globals: true` enables Jest-like globals (`describe`, `test`, `expect`) without explicit imports
@@ -71,6 +71,7 @@ Key decisions:
 - `eslint-config-next/core-web-vitals` — Next.js + React + React Hooks rules; upgrades CWV-impacting rules from warnings to errors
 - `eslint-config-next/typescript` — adds `typescript-eslint/recommended` rules
 - `eslint-config-prettier/flat` — disables ESLint formatting rules that conflict with Prettier (must be last)
+- `includeIgnoreFile` from `@eslint/compat` auto-ignores all files listed in `.gitignore`
 - `globalIgnores` excludes `.next/`, `out/`, `build/`, `next-env.d.ts`
 - `next lint` was removed in Next.js 16; use `npm run lint` (`eslint .`) instead
 
@@ -111,9 +112,9 @@ Key decisions:
 Dev dependencies:
 
 - `tailwindcss`, `@tailwindcss/postcss`
-- `vitest`, `@vitejs/plugin-react`, `jsdom`, `@testing-library/react`, `@testing-library/dom`, `@testing-library/user-event`, `vite-tsconfig-paths`, `dotenv`
+- `vitest`, `@vitejs/plugin-react`, `jsdom`, `@testing-library/react`, `@testing-library/dom`, `@testing-library/user-event`, `dotenv`
 - `@playwright/test`
-- `eslint`, `eslint-config-next`, `eslint-config-prettier`
+- `eslint`, `eslint-config-next`, `eslint-config-prettier`, `@eslint/compat`
 - `prettier` (exact-pinned)
 
 ### Semantic Release
