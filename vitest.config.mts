@@ -1,10 +1,11 @@
 import { defineConfig } from 'vitest/config'
 import react from '@vitejs/plugin-react'
-import tsconfigPaths from 'vite-tsconfig-paths'
 
 export default defineConfig({
+  resolve: {
+    tsconfigPaths: true, // Enable path aliasing ("@" for "./src") based on tsconfig.json
+  },
   plugins: [
-    tsconfigPaths(), // Enable path aliasing ("@" for "./src") based on tsconfig.json
     react(), // Transform React JSX syntax for testing React components
   ],
   test: {
