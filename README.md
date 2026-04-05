@@ -81,3 +81,7 @@ Running the `setup` script should have copied `.env.local.example` to `.env.loca
 
 - `APP_ENV` — controls robots/indexing. Set to `"production"` to allow search engine indexing; any other value (`"local"`, `"staging"`) disables indexing.
 - `SITE_URL` — canonical URL of your site, used for sitemap generation. Set to your domain in production.
+
+## Visual regression testing
+
+A sample test script is available in `__tests__/e2e/home.spec.ts`. Configuration is already included in `playwright.config.ts`.
