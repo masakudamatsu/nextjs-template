@@ -32,4 +32,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           semantic_version: 24
-          dry_run: true # Set to false to actually publish releases
+          dry_run: false

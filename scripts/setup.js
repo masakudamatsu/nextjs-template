@@ -92,7 +92,26 @@ async function main() {
     console.log('Copied .env.local.example → .env.local')
   }
 
-  // Step 8: Delete this script — it's a one-time setup tool and is no longer
+  // Step 8: Restore dry_run: true in release.yml so the forked repo starts in
+  // test mode. The user can set it to false when ready to publish real releases.
+  const releasePath = path.join(root, '.github/workflows/release.yml')
+  if (fs.existsSync(releasePath)) {
+    const release = fs.readFileSync(releasePath, 'utf8')
+    const updatedRelease = release.replace('dry_run: false', 'dry_run: true')
+    fs.writeFileSync(releasePath, updatedRelease)
+    console.log('Restored dry_run: true in .github/workflows/release.yml')
+  }
+  if (fs.existsSync(techContextPath)) {
+    const techContext = fs.readFileSync(techContextPath, 'utf8')
+    const updatedTechContext = techContext.replace(
+      '- `dry_run: false` in the workflow (template repo publishes real releases); `setup.js` restores it to `true` on fork so the new repo starts in test mode',
+      '- `dry_run: true` set in the workflow action\'s `with` block — test mode; set to `false` when ready to publish real releases',
+    )
+    fs.writeFileSync(techContextPath, updatedTechContext)
+    console.log('Updated dry_run description in memory-bank/techContext.md')
+  }
+
+  // Step 9: Delete this script — it's a one-time setup tool and is no longer
   // needed once the fork is initialized. Node.js has already loaded it into
   // memory, so deleting the file mid-execution is safe.
   fs.rmSync(__filename)
