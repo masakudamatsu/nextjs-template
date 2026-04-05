@@ -21,10 +21,10 @@ Initial project setup.
 - Added Semantic Release (`release.yml` + `.releaserc`) — currently in dry-run mode
 - Published as public GitHub template repository at `github.com/masakudamatsu/nextjs-template`; "Template repository" enabled; GitHub Actions upgraded to Node.js 24 (`actions/checkout@v6`, `actions/setup-node@v6`, `cycjimmy/semantic-release-action@v6`)
 - Added `LICENSE` (MIT, 2026)
+- Added Husky pre-push hook (`.husky/pre-push`): runs `npm run lint` then `npm run reg` before every push
 
 ## Next Steps
 
-- Install Husky to enforce `npm run lint && npm run reg` as a pre-push hook
 - Activate Semantic Release (set `dry_run: false` in `release.yml`)
 
 ## Active Decisions

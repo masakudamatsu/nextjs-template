@@ -19,10 +19,10 @@
 - Published as public GitHub template repository (`github.com/masakudamatsu/nextjs-template`); "Template repository" enabled
 - MIT `LICENSE` added
 - GitHub Actions upgraded to Node.js 24 (`actions/checkout@v6`, `actions/setup-node@v6`, `cycjimmy/semantic-release-action@v6`)
+- Husky pre-push hook added (`.husky/pre-push`): runs `npm run lint` then `npm run reg` before every push
 
 ## What's Left to Build
 
-- Husky pre-push hook (`npm run lint && npm run reg`)
 - Activate Semantic Release (`dry_run: false`)
 
 ## Current Status

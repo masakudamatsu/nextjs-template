@@ -11,6 +11,7 @@
 - ESLint
 - Prettier
 - Semantic Release
+- Husky
 
 ## Development Setup
 
@@ -86,6 +87,16 @@ Key decisions:
 - Run on save via editor Prettier extension (format-on-save); no pre-commit hook needed since unsaved files can't be committed
 - `npm run format:check` is the CI gate for non-VS Code contributors
 
+### Husky
+
+Config: `.husky/pre-push`. Initialized via `npx husky init`; `"prepare": "husky"` in `package.json` auto-initializes for new contributors after `npm install`.
+
+Key decisions:
+
+- Pre-push hook only (no pre-commit) — fast feedback without interrupting normal commit flow
+- Hook runs `npm run lint` first (fast), then `npm run reg` (slower) so ESLint failures surface before the full test suite
+- Only ESLint errors block the push; warnings do not (ESLint exits 0 on warnings)
+
 ### npm scripts
 
 | Script                    | Command                                            | When to use                                     |
@@ -116,6 +127,7 @@ Dev dependencies:
 - `@playwright/test`
 - `eslint`, `eslint-config-next`, `eslint-config-prettier`, `@eslint/compat`
 - `prettier` (exact-pinned)
+- `husky`
 
 ### Semantic Release
 
