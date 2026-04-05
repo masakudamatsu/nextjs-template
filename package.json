@@ -20,7 +20,8 @@
     "lint": "eslint .",
     "format": "prettier . --write",
     "format:check": "prettier . --check",
-    "setup": "node scripts/setup.js"
+    "setup": "node scripts/setup.js",
+    "prepare": "husky"
   },
   "keywords": [],
   "author": "Masa Kudamatsu <masakudamatsu@gmail.com>",
@@ -45,6 +46,7 @@
     "eslint": "9.39.4",
     "eslint-config-next": "16.2.1",
     "eslint-config-prettier": "10.1.8",
+    "husky": "9.1.7",
     "jsdom": "29.0.1",
     "prettier": "3.8.1",
     "tailwindcss": "4.2.2",
