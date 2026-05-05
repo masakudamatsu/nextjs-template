@@ -84,17 +84,18 @@ Key decisions:
 
 - Pinned with `--save-exact` (no `^`) per Prettier's recommendation, to prevent formatting churn across versions
 - To upgrade: `npm install --save-dev --save-exact prettier@latest`
-- Run on save via editor Prettier extension (format-on-save); no pre-commit hook needed since unsaved files can't be committed
+- Run on save via editor Prettier extension (format-on-save)
+- Pre-commit hook (Husky + lint-staged) auto-formats staged files before every commit, so formatting churn never pollutes semantic commits
 - `npm run format:check` is the CI gate for non-VS Code contributors
 
 ### Husky
 
-Config: `.husky/pre-push`. Initialized via `npx husky init`; `"prepare": "husky"` in `package.json` auto-initializes for new contributors after `npm install`.
+Config: `.husky/pre-push`, `.husky/pre-commit`. Initialized via `npx husky init`; `"prepare": "husky"` in `package.json` auto-initializes for new contributors after `npm install`.
 
 Key decisions:
 
-- Pre-push hook only (no pre-commit) — fast feedback without interrupting normal commit flow
-- Hook runs `npm run lint` first (fast), then `npm run reg` (slower) so ESLint failures surface before the full test suite
+- Pre-commit hook runs `npx lint-staged` — auto-formats staged files with Prettier and re-stages them, so every commit is Prettier-clean without manual intervention
+- Pre-push hook runs `npm run lint` first (fast), then `npm run reg` (slower) so ESLint failures surface before the full test suite
 - Only ESLint errors block the push; warnings do not (ESLint exits 0 on warnings)
 
 ### npm scripts
@@ -128,6 +129,7 @@ Dev dependencies:
 - `eslint`, `eslint-config-next`, `eslint-config-prettier`, `@eslint/compat`
 - `prettier` (exact-pinned)
 - `husky`
+- `lint-staged`
 
 ### Semantic Release
 
@@ -146,6 +148,7 @@ Key decisions:
 Run once after forking the template. Prompts for app details, updates `package.json`, initializes the memory bank, and removes this section from `techContext.md`.
 
 Steps:
+
 1. Prompts for app name (default: `my-nextjs-app`), description, and author
 2. Updates `package.json`: sets `name`, `description`, `author`; resets `version` to `1.0.0`
 3. Deletes project-specific memory bank files (`projectbrief.md`, `productContext.md`, `activeContext.md`, `progress.md`)

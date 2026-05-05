@@ -83,7 +83,49 @@ async function main() {
     console.log('Removed Setup Script section from memory-bank/techContext.md')
   }
 
-  // Step 7: Copy .env.local.example → .env.local so the dev server works out of the box.
+  // Step 7: Append the Test-Driven Development section to systemPatterns.md.
+  // This section is not present in the template itself (it only applies to real
+  // projects), so it is injected here rather than kept in the source file.
+  const systemPatternsPath = path.join(memoryBankDir, 'systemPatterns.md')
+  if (fs.existsSync(systemPatternsPath)) {
+    const tddSection = `
+---
+
+## Test-Driven Development
+
+TDD is the required development workflow for all new features and bug fixes. The three phases must be followed in order — no exceptions.
+
+### The Three Phases
+
+1. **Red** — Write a test that describes the desired behaviour. Run it and confirm it fails. If it passes without any implementation, the test is wrong — fix it before proceeding.
+2. **Green** — Write the minimum implementation code that makes the failing test pass. Do not add anything beyond what the test requires.
+3. **Refactor** — Improve code readability, structure, and clarity without changing behaviour. Re-run the tests after every change to confirm they still pass.
+
+**Never write implementation code before a failing test exists.** If you find yourself writing a component, function, or server action without a corresponding failing test, stop and write the test first.
+
+### Which Test Type to Use
+
+**Default to Playwright e2e tests.** They test the user experience directly and remain valid even when the implementation changes underneath. A refactor that rewrites a component's internals should not require rewriting the tests.
+
+**Use Vitest unit tests when:**
+- They can catch a specific bug more efficiently than an e2e test (e.g., a pure function with many edge cases that would be slow or awkward to drive through the browser)
+- The code under test requires mocking external modules — Vitest's module mocking is well-suited for this; Playwright is not
+
+When in doubt, prefer the e2e test.
+
+### Scope
+
+TDD applies to: all new UI features, server actions, API route handlers, utility functions, and bug fixes.
+
+TDD does not apply to: configuration files, database schema migrations, documentation, and memory bank updates.
+`
+    fs.appendFileSync(systemPatternsPath, tddSection)
+    console.log(
+      'Appended Test-Driven Development section to memory-bank/systemPatterns.md',
+    )
+  }
+
+  // Step 8: Copy .env.local.example → .env.local so the dev server works out of the box.
   // Skip if .env.local already exists (e.g. re-running setup).
   const envExamplePath = path.join(root, '.env.local.example')
   const envLocalPath = path.join(root, '.env.local')
@@ -92,7 +134,7 @@ async function main() {
     console.log('Copied .env.local.example → .env.local')
   }
 
-  // Step 8: Restore dry_run: true in release.yml so the forked repo starts in
+  // Step 9: Restore dry_run: true in release.yml so the forked repo starts in
   // test mode. The user can set it to false when ready to publish real releases.
   const releasePath = path.join(root, '.github/workflows/release.yml')
   if (fs.existsSync(releasePath)) {
@@ -111,7 +153,7 @@ async function main() {
     console.log('Updated dry_run description in memory-bank/techContext.md')
   }
 
-  // Step 9: Delete this script — it's a one-time setup tool and is no longer
+  // Step 10: Delete this script — it's a one-time setup tool and is no longer
   // needed once the fork is initialized. Node.js has already loaded it into
   // memory, so deleting the file mid-execution is safe.
   fs.rmSync(__filename)
