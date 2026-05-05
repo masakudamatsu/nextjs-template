@@ -11,12 +11,13 @@ An opinionated Next.js starter with testing and code quality tools pre-configure
   - `<html>`: `antialiased`, `motion-safe:scroll-smooth`, `scroll-pt-header` (tied to `--header-height` CSS var), `text-size-adjust-none`
 - **Vitest** — unit/component tests in `__tests__/vitest/`, jsdom environment, React Testing Library
 - **Playwright** — e2e + visual regression tests in `__tests__/e2e/`, runs against both dev and production builds, three browsers (Chromium, Firefox, WebKit)
-- **ESLint + Prettier** — flat config ESLint with Next.js rules; Prettier pinned to an exact version (no `^`)
+- **ESLint + Prettier** — flat config ESLint with Next.js rules; Prettier pinned to an exact version (no `^`); pre-commit hook via Husky + lint-staged auto-formats staged files before every commit
 - **Context7 MCP server** — live documentation for Next.js, Tailwind CSS, Vitest, and Playwright (via `.mcp.json`)
 
 ## Getting started
 
 ### Step 1: Initialize the repo
+
 Fork this repo on GitHub, then:
 
 ```bash
@@ -35,14 +36,14 @@ After running `npm run setup`, open `memory-bank/projectbrief.md` and fill in yo
 
 `npm run setup` creates a `CLAUDE.md` with memory bank instructions for Claude Code. If you use a different AI agent, rename it to match that tool's convention:
 
-| Agent | File |
-|-------|------|
-| Claude Code | `CLAUDE.md` |
-| Cursor | `.cursorrules` |
-| Windsurf | `.windsurfrules` |
+| Agent          | File                              |
+| -------------- | --------------------------------- |
+| Claude Code    | `CLAUDE.md`                       |
+| Cursor         | `.cursorrules`                    |
+| Windsurf       | `.windsurfrules`                  |
 | GitHub Copilot | `.github/copilot-instructions.md` |
-| OpenAI agents | `AGENTS.md` |
-| Cline | `.clinerules` |
+| OpenAI agents  | `AGENTS.md`                       |
+| Cline          | `.clinerules`                     |
 
 ### Step 3: Editor setup
 
@@ -58,22 +59,22 @@ as recommended by the [Prettier docs](https://prettier.io/docs/install).
 
 ## Scripts
 
-| Script | Description |
-|--------|-------------|
-| `dev` | Start dev server |
-| `build` | Production build |
-| `start` | Serve production build |
-| `unit` | Run Vitest unit tests |
-| `test` | Run Playwright tests (Chromium, headless) |
-| `firefox` | Run Playwright tests (Firefox, headless) |
-| `safari` | Run Playwright tests (WebKit, headless) |
-| `e2e` | Open Playwright UI |
-| `debug` | Run Playwright in debug mode |
-| `reg` | Run all tests (Vitest + Playwright) |
-| `update` | Re-run last failed Playwright tests and update snapshots |
-| `lint` | Run ESLint |
-| `format` | Run Prettier (write) |
-| `format:check` | Check formatting without writing (CI gate) |
+| Script         | Description                                              |
+| -------------- | -------------------------------------------------------- |
+| `dev`          | Start dev server                                         |
+| `build`        | Production build                                         |
+| `start`        | Serve production build                                   |
+| `unit`         | Run Vitest unit tests                                    |
+| `test`         | Run Playwright tests (Chromium, headless)                |
+| `firefox`      | Run Playwright tests (Firefox, headless)                 |
+| `safari`       | Run Playwright tests (WebKit, headless)                  |
+| `e2e`          | Open Playwright UI                                       |
+| `debug`        | Run Playwright in debug mode                             |
+| `reg`          | Run all tests (Vitest + Playwright)                      |
+| `update`       | Re-run last failed Playwright tests and update snapshots |
+| `lint`         | Run ESLint                                               |
+| `format`       | Run Prettier (write)                                     |
+| `format:check` | Check formatting without writing (CI gate)               |
 
 ## Environment variables
 
