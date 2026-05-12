@@ -6,7 +6,7 @@
   --spacing-header: var(--header-height);
 }
 
-/* CSS Resest */
+/* CSS Reset */
 @layer base {
   /* Header height */
   :root {
