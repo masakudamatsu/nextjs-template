@@ -20,14 +20,18 @@
 - MIT `LICENSE` added
 - GitHub Actions upgraded to Node.js 24 (`actions/checkout@v6`, `actions/setup-node@v6`, `cycjimmy/semantic-release-action@v6`)
 - Husky pre-push hook added (`.husky/pre-push`): runs `npm run lint` then `npm run reg` before every push
+- Semantic Release activated (`dry_run: false`); `setup.js` restores `dry_run: true` on fork
+- Husky pre-commit hook added (`.husky/pre-commit`): runs `npx lint-staged` to auto-format staged files with Prettier; `lint-staged` dev dependency added
+- Setup script now injects a TDD section into `systemPatterns.md` on fork
+- CSS fix: `@layer utilities` inside `@layer base` replaced with top-level `@utility text-size-adjust-none`
 
 ## What's Left to Build
 
-- Activate Semantic Release (`dry_run: false`)
+(None — template is feature-complete)
 
 ## Current Status
 
-Template published and publicly available.
+Template published, publicly available, and fully operational.
 
 ## Known Issues
 

@@ -155,9 +155,10 @@ Steps:
 4. Moves `projectbrief-sample.md` → `memory-bank/projectbrief.md`
 5. Moves `CLAUDE-sample.md` → `CLAUDE.md`
 6. Removes this section from `techContext.md`
-7. Copies `.env.local.example` → `.env.local` (skipped if `.env.local` already exists)
-8. Restores `dry_run: true` in `.github/workflows/release.yml` so the forked repo starts in test mode
-9. Deletes itself
+7. Appends a Test-Driven Development section to `systemPatterns.md` (covers Red/Green/Refactor phases, test type selection, and scope — not present in the template itself, only injected on fork)
+8. Copies `.env.local.example` → `.env.local` (skipped if `.env.local` already exists)
+9. Restores `dry_run: true` in `.github/workflows/release.yml` so the forked repo starts in test mode
+10. Deletes itself
 
 `systemPatterns.md` and the rest of `techContext.md` are preserved — they describe the inherited tech stack and remain accurate for any fork.
 
